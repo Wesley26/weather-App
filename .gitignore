@@ -9,5 +9,11 @@ npm-debug.*
 *.orig.*
 web-build/
 
+# Visual Studio Code folder
+.vscode
+
+# tailwind (styles.json is un-tracked ONLY when purge is enabled)
+styles.json
+
 # macOS
 .DS_Store
