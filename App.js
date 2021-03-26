@@ -1,4 +1,14 @@
 import React from 'react';
-import MainMenu from './components/screens/MainMenu.js';
 
-const App = () => ( <MainMenu /> ); export default App;
+import WeatherScreen from './components/screens/WeatherScreen';
+
+
+const App = () => {
+
+    return (
+
+        <WeatherScreen />
+
+    );
+
+}; export default App;
