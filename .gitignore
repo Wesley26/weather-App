@@ -15,5 +15,8 @@ web-build/
 # tailwind (styles.json is un-tracked ONLY when purge is enabled)
 styles.json
 
+# ignoring ./components/clientSecret directory for API Key security
+components/clientSecret
+
 # macOS
 .DS_Store
