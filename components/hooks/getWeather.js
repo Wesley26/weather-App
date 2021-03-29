@@ -52,14 +52,17 @@ export default getWeather = () => {
 
             } catch (error) {
                 console.log(error);
+            } finally {
+                console.log("async function fetchWeather() has been run."); //API rate call confirmation
             };
-
-            console.log("async function fetchWeather() has been run."); //API rate call confirmation
 
         };
 
-        //API calls must not occur more than once every minute.
+        //API calls must not occur more than once every minute."
+        //The automated way has not been successful - method keeps spamming
+        //OpenWeather Map API unintentionally
         setInterval(() => { fetchWeather() }, 60000);
+        //fetchWeather();
 
     };
 
