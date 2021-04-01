@@ -1,27 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ImageBackground, 
-        Text,
+        ScrollView, 
         View } from 'react-native';
 
 import { tailwind } from '../../tailwind.js';
 
-import getWeather from '../hooks/getWeather';
+import WeatherContent from '../componenetsMain/WeatherContent.js';
 
 /**
  * @WeatherScreen - Base Weather Screen componenet,
- * calls getWeather to obtain weather data.
+ * imports WeatherContent to obtain weather data.
  * 
  * @imageBG - Object stores background images day and night
- * @backgroundImage - truthy determines from hour Date Object
+ * @backgroundImage - useState hook determines from hour Date Object
  * whether to display day or night background.
+ * @settingBG - truthy determines if it is day or night hour
  * 
  * @returns - Weather Screen base componenet
  */
 
-const WeatherScreen = () => {
- 
-    const theCurrentWeather = getWeather();
-    console.log(theCurrentWeather);
+export default WeatherScreen = () => {
 
     const imageBG = {
         day: require("../assets/mainPhotos/Day_Clouds.jpg"),
@@ -29,9 +27,17 @@ const WeatherScreen = () => {
     };
 
     let hour = new Date().getHours();
-    console.log(`The Current Hour is: ${hour}`); //uncomment to see current hour
 
-    let backgroundImage = hour >= 6 && hour <= 18 ? imageBG.day : imageBG.night;
+    const [backgroundImage, setBackgroundImage] = useState();
+
+    useEffect(() => {
+
+        console.log(`The Current Hour is: ${hour}`); //uncomment to see current hour
+
+        let settingBG = hour >= 6 && hour <= 18 ? imageBG.day : imageBG.night;
+        setBackgroundImage(settingBG);
+
+    }, [hour]);
 
     return (
 
@@ -41,18 +47,16 @@ const WeatherScreen = () => {
         >
         <View style={tailwind('bg-gray-500 flex-col w-full h-16 rounded-lg')} />
 
-            <View style={tailwind('bg-transparent flex-1 justify-center items-center')}>
-
-                <View style={tailwind('bg-white p-5 justify-center items-center rounded-full')}>
-                    <Text>Sample React Native Text idk</Text>    
-
-                </View>
-
-            </View>
+            <ScrollView
+                style={tailwind('pt-10 bg-transparent flex-1')}
+            >
+                <WeatherContent />
+                
+            </ScrollView>
 
         <View style={tailwind('bg-gray-500 flex-col-reverse w-full h-16 rounded-lg')} />
         </ImageBackground>
 
     );
 
-}; export default WeatherScreen;
+};

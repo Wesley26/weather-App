@@ -32,7 +32,7 @@ export default getWeather = () => {
 
         if (theLocation !== undefined) {
 
-            weatherUrl = `${baseWeatherUrl}lat=${theLocation.latitude}&lon=${theLocation.longitude}&appid=${WEATHER_API_KEY}`;
+            weatherUrl = `${baseWeatherUrl}lat=${theLocation.latitude}&lon=${theLocation.longitude}&units=imperial&appid=${WEATHER_API_KEY}`;
             console.log(weatherUrl); //uncomment if needed
 
             const fetchWeather = async () => {
@@ -53,7 +53,10 @@ export default getWeather = () => {
                     };
 
                 } catch (error) {
+
                     console.log(error);
+                    alert(error.message);
+                    
                 } finally {
                     console.log("async function fetchWeather() has been run."); //API rate call confirmation
                 };
