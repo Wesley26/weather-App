@@ -5,7 +5,7 @@ import { ImageBackground,
 
 import { tailwind } from '../../tailwind.js';
 
-import WeatherContent from '../componenetsMain/WeatherContent.js';
+import WeatherContent from '../componentsMain/WeatherContent.js';
 
 /**
  * @WeatherScreen - Base Weather Screen componenet,
@@ -16,7 +16,7 @@ import WeatherContent from '../componenetsMain/WeatherContent.js';
  * whether to display day or night background.
  * @settingBG - truthy determines if it is day or night hour
  * 
- * @returns - Weather Screen base componenet
+ * @returns - Weather Screen base component
  */
 
 export default WeatherScreen = () => {

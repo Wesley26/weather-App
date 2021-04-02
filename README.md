@@ -1,6 +1,6 @@
 # weather_App React Native App
 
-This React Native App uses the following dependencies: [React Native Docs (expo)](https://reactnative.dev/), [TailwindCSS](https://tailwindcss.com/), [Tailwind-RN](https://github.com/vadimdemedes/tailwind-rn#readme), [Expo Location](https://docs.expo.io/versions/v40.0.0/sdk/location/), 
+This React Native App uses the following dependencies: [React Native Docs (expo)](https://reactnative.dev/), [TailwindCSS](https://tailwindcss.com/), [Tailwind-RN](https://github.com/vadimdemedes/tailwind-rn#readme), [Expo Icons](https://icons.expo.fyi/), [Expo Location](https://docs.expo.io/versions/v40.0.0/sdk/location/), 
 
 Obtaining weather from [OpenWeather Map](https://openweathermap.org/).
 
