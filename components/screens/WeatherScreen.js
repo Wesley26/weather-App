@@ -49,6 +49,7 @@ export default WeatherScreen = () => {
 
             <ScrollView
                 style={tailwind('pt-10 bg-transparent flex-1')}
+                scrollEnabled={true}
             >
                 <WeatherContent />
                 

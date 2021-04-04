@@ -1,7 +1,10 @@
 import React from 'react';
 import { Image,
+        Platform,
         View,
-        Text } from 'react-native';
+        Text, 
+        TouchableOpacity } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 
 import fontConfig from '../config/fontConfig.js';
 import { tailwind } from '../../tailwind.js';
@@ -12,7 +15,7 @@ import getWeather from '../hooks/getWeather.js';
 
 /**
  * @WeatherContent - calls getWeather to import and display
- * weather data.
+ * weather data. useReducer allows for re-render page
  * 
  * @returns - if theCurrentWeather exists, show all weather content
  * if theCurrentWeather does not exist, show loading prompt to the user
@@ -24,6 +27,8 @@ export default WeatherContent = () => {
     console.log(theCurrentWeather);
 
     const loadingText = `Loading ...`;
+    const reloadIconName = Platform.OS === 'ios' ? 'ios-refresh' : 'md-refresh';
+
 
     if (theCurrentWeather) {
 
@@ -54,7 +59,7 @@ export default WeatherContent = () => {
 
         return (
 
-            <View style={tailwind('bg-transparent flex-1 justify-center items-center')}>
+            <View style={tailwind('bg-transparent mb-24 flex-1 justify-center items-center')}>
                             
                 <View style={tailwind('bg-white bg-opacity-30 p-5 justify-center items-center rounded-lg')}>
 
@@ -99,19 +104,33 @@ export default WeatherContent = () => {
                                 ]}
                             numberOfLines={1}
                         >
-                            {temp}&deg;F
+                            {Math.round(temp)}&deg;F
                         </Text>
 
                         <Text
                             style={[
                                 fontConfig.fontFamilyText,
-                                tailwind('bg-gray-300 p-3 w-64 h-24 text-center text-22fz rounded-full')
+                                tailwind('bg-gray-300 p-3 w-64 h-40 text-center text-22fz rounded-full')
                                 ]}
                             numberOfLines={5}
                         >
                             {descriptionText}
                         </Text>
 
+                    </View>
+
+                    <View style={tailwind('bg-gray-300 p-3 max-w-full h-16 text-center rounded-full')}>
+                            <TouchableOpacity
+                                onPress={() => {
+                                    console.log('refreshed');
+                                }}
+                            >
+                                <Ionicons 
+                                    name={reloadIconName}
+                                    size={40}
+                                    color={"black"}
+                                />
+                            </TouchableOpacity>
                     </View>
 
                 </View>
