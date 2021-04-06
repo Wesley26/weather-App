@@ -1,21 +1,28 @@
 import React from 'react';
-import { Image,
-        Platform,
-        View,
-        Text, 
-        TouchableOpacity } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { View } from 'react-native';
 
 import fontConfig from '../config/fontConfig.js';
 import { tailwind } from '../../tailwind.js';
 
-import LoadingMessage from './weatherContentChildren/LoadingMessage.js';
+import {
+            AirPressure,
+            CityName,
+            CurrentTemperature,
+            FeelsLikeTemperature,
+            Humidity,
+            InfoButton,
+            LoadingMessage,
+            MinMaxTemp,
+            WeatherDescription,
+            WeatherIcon,
+            WeatherMain,
+} from './weatherContentChildren/index.js';
 
 import getWeather from '../hooks/getWeather.js';
 
 /**
  * @WeatherContent - calls getWeather to import and display
- * weather data. useReducer allows for re-render page
+ * weather data.
  * 
  * @returns - if theCurrentWeather exists, show all weather content
  * if theCurrentWeather does not exist, show loading prompt to the user
@@ -24,11 +31,9 @@ import getWeather from '../hooks/getWeather.js';
 export default WeatherContent = () => {
 
     const theCurrentWeather = getWeather();
-    console.log(theCurrentWeather);
+    console.log(theCurrentWeather); //uncomment to see theCurrentWeather Object
 
     const loadingText = `Loading ...`;
-    const reloadIconName = Platform.OS === 'ios' ? 'ios-refresh' : 'md-refresh';
-
 
     if (theCurrentWeather) {
 
@@ -40,7 +45,13 @@ export default WeatherContent = () => {
          */
 
         const { 
-            main: { temp },
+            main: { temp, 
+                    feels_like,
+                    temp_min,
+                    temp_max,
+                    pressure,
+                    humidity
+            },
             weather: [details],
             name,
             
@@ -55,6 +66,15 @@ export default WeatherContent = () => {
          * de-structured object.
          */
         const tempText = `Current Temperature is: `;
+        const tempSymbol = `°F`;
+        const feelsLikeText =`It feels like: ${Math.round(feels_like)}°F`;
+        const tempMinMaxText =`The current low temperature is: ${Math.round(temp_min)}°F
+
+The current high temperature is: ${Math.round(temp_max)}°F`;
+
+        const airPressureText = `The current air pressure in your area is: ${pressure} hPa`;
+        const humidityText = `The current humidity in your area is: ${humidity} %`;
+
         const descriptionText = `The current weather in your area is ${description}.`;
 
         return (
@@ -65,73 +85,47 @@ export default WeatherContent = () => {
 
                     <View style={tailwind('p-10 justify-center items-center flex-col')}>
 
-                        <Text style={[
-                                fontConfig.fontFamilyText,
-                                tailwind('bg-gray-300 p-3 w-64 h-16 text-center text-22fz rounded-full')
-                                ]}>
-                            {name}
-                        </Text>
-
-                        <Image 
-                            source={{uri: iconUrl}}
-                            style={tailwind('w-100w h-100h')}
+                        <CityName 
+                            name={name}
                         />
 
-                        <Text
-                            style={[
-                                fontConfig.fontFamilyText,
-                                tailwind('bg-gray-300 p-3 w-64 h-24 text-center text-22fz uppercase rounded-full')
-                                ]}
-                            numberOfLines={1}
-                        >
-                            {main}
-                        </Text>
+                        <WeatherIcon 
+                            icon={{uri: iconUrl}}
+                        />
+
+                        <WeatherMain 
+                            mainWeatherName={main}
+                        />
                         
-                        <Text 
-                            style={[
-                                fontConfig.fontFamilyText,
-                                tailwind('bg-gray-300 pt-3 w-64 h-12 text-center text-22fz rounded-full')
-                                ]}
-                            numberOfLines={1}
-                        >
-                            {tempText}
-                        </Text>
-                        <Text 
-                            style={[
-                                fontConfig.fontFamilyText,
-                                fontConfig.temperatureColor,
-                                tailwind('bg-gray-300 pb-32 w-64 h-12 text-center text-44fz rounded-full')
-                                ]}
-                            numberOfLines={1}
-                        >
-                            {Math.round(temp)}&deg;F
-                        </Text>
+                        <CurrentTemperature 
+                            tempText={tempText}
+                            temp={temp}
+                            tempSymbol={tempSymbol}
+                        />
+                        
+                        <FeelsLikeTemperature
+                            feelsLikeText={feelsLikeText}
+                        />
 
-                        <Text
-                            style={[
-                                fontConfig.fontFamilyText,
-                                tailwind('bg-gray-300 p-3 w-64 h-40 text-center text-22fz rounded-full')
-                                ]}
-                            numberOfLines={5}
-                        >
-                            {descriptionText}
-                        </Text>
+                        <MinMaxTemp 
+                            tempMinMaxText={tempMinMaxText}
+                        />
+
+                        <Humidity 
+                            humidityText={humidityText}
+                        />
+
+                        <AirPressure 
+                            airPressureText={airPressureText}
+                        />
+
+                        <WeatherDescription 
+                            descriptionText={descriptionText}
+                        />
 
                     </View>
 
-                    <View style={tailwind('bg-gray-300 p-3 max-w-full h-16 text-center rounded-full')}>
-                            <TouchableOpacity
-                                onPress={() => {
-                                    console.log('refreshed');
-                                }}
-                            >
-                                <Ionicons 
-                                    name={reloadIconName}
-                                    size={40}
-                                    color={"black"}
-                                />
-                            </TouchableOpacity>
-                    </View>
+                    <InfoButton />
 
                 </View>
             </View>

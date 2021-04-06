@@ -25,7 +25,7 @@ export default LoadingMessage = ({ font, loadText }) => {
             <View style={tailwind('bg-white bg-opacity-30 px-5 py-10 justify-center items-center rounded-lg')}>
 
                 <AntDesign
-                    style={tailwind('bg-gray-300 p-3 w-64 h-16 text-center justify-center items-center rounded-full')}
+                    style={tailwind('bg-gray-300 p-3 w-64 h-16 text-center justify-center items-center')}
                     name="loading1"
                     size={30}
                     color="black"
@@ -33,7 +33,7 @@ export default LoadingMessage = ({ font, loadText }) => {
 
                 <Text style={[
                             font.fontFamilyText,
-                            tailwind('bg-gray-300 p-3 w-64 h-16 text-center text-22fz rounded-full')
+                            tailwind('bg-gray-300 p-3 w-64 h-16 text-center text-22fz')
                             ]}>
                     {loadText}
                 </Text>
