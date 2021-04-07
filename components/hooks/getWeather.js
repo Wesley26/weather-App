@@ -4,12 +4,12 @@ import useLocation from '../hooks/useLocation.js';
 
 /**
  * @getWeather - if permission was granted in useLocation() hook,
- * uses Object theLocation containg lat. and long. coordinates as
+ * uses Object theLocation containing lat. and long. coordinates as
  * decimal number values. Returns the currentWeather. useEffect()
  * relies on the value of Object theLocation.
  *
  * @WEATHER_API_KEY - accessed from clientSecret directory,
- * hidden for repo secruity and must be manually provided.
+ * hidden for repo security and must be manually provided.
  * @currentWeather - useState hook to store JSON result of
  * current weather data.
  * @baseWeatherUrl - initial OpenWeatherMap API access string

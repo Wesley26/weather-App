@@ -3,11 +3,12 @@ import { View,
         Text } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
+import fontConfig from '../../config/fontConfig.js';
 import { tailwind } from '../../../tailwind.js';
 
 /**
- * @LoadingMessage - componenet returns loading message
- * if the WeatherContent componenet does not have any
+ * @LoadingMessage - component returns loading message
+ * if the WeatherContent component does not have any
  * weather data
  * 
  * @param - loadText: string which takes loading text to
@@ -18,6 +19,8 @@ import { tailwind } from '../../../tailwind.js';
 
 export default LoadingMessage = ({ font, loadText }) => {
 
+    const loadingIconName = `loading1`;
+
     return (
 
         <View style={tailwind('bg-transparent flex-1 justify-center items-center')}>
@@ -26,9 +29,9 @@ export default LoadingMessage = ({ font, loadText }) => {
 
                 <AntDesign
                     style={tailwind('bg-gray-300 p-3 w-64 h-16 text-center justify-center items-center')}
-                    name="loading1"
+                    name={loadingIconName}
                     size={30}
-                    color="black"
+                    color={fontConfig.loadingColor.color}
                 />
 
                 <Text style={[

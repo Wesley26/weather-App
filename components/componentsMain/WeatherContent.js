@@ -68,12 +68,11 @@ export default WeatherContent = () => {
         const tempText = `Current Temperature is: `;
         const tempSymbol = `°F`;
         const feelsLikeText =`It feels like: ${Math.round(feels_like)}°F`;
-        const tempMinMaxText =`The current low temperature is: ${Math.round(temp_min)}°F
+        const tempMinText =`Current Low: ${Math.round(temp_min)}°F`;
+        const tempMaxText =`Current High: ${Math.round(temp_max)}°F`;
 
-The current high temperature is: ${Math.round(temp_max)}°F`;
-
-        const airPressureText = `The current air pressure in your area is: ${pressure} hPa`;
-        const humidityText = `The current humidity in your area is: ${humidity} %`;
+        const airPressureText = `Current Air Pressure: ${pressure} hPa`;
+        const humidityText = `Current Humidity: ${humidity} %`;
 
         const descriptionText = `The current weather in your area is ${description}.`;
 
@@ -96,6 +95,10 @@ The current high temperature is: ${Math.round(temp_max)}°F`;
                         <WeatherMain 
                             mainWeatherName={main}
                         />
+
+                        <WeatherDescription 
+                            descriptionText={descriptionText}
+                        />
                         
                         <CurrentTemperature 
                             tempText={tempText}
@@ -108,7 +111,8 @@ The current high temperature is: ${Math.round(temp_max)}°F`;
                         />
 
                         <MinMaxTemp 
-                            tempMinMaxText={tempMinMaxText}
+                            tempMinText={tempMinText}
+                            tempMaxText={tempMaxText}
                         />
 
                         <Humidity 
@@ -117,10 +121,6 @@ The current high temperature is: ${Math.round(temp_max)}°F`;
 
                         <AirPressure 
                             airPressureText={airPressureText}
-                        />
-
-                        <WeatherDescription 
-                            descriptionText={descriptionText}
                         />
 
                     </View>

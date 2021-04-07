@@ -8,7 +8,7 @@ import { tailwind } from '../../tailwind.js';
 import WeatherContent from '../componentsMain/WeatherContent.js';
 
 /**
- * @WeatherScreen - Base Weather Screen componenet,
+ * @WeatherScreen - Base Weather Screen component,
  * imports WeatherContent to obtain weather data.
  * 
  * @imageBG - Object stores background images day and night

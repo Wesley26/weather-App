@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { View, Text } from 'react-native';
 
 import fontConfig from '../../config/fontConfig.js';
 import { tailwind } from '../../../tailwind.js';
@@ -13,14 +13,16 @@ import { tailwind } from '../../../tailwind.js';
 
 export default WeatherDescription = ({ descriptionText }) => {
     return (
-        <Text
-            style={[
-                fontConfig.fontFamilyText,
-                tailwind('bg-gray-300 p-3 w-64 h-40 text-center text-22fz')
-            ]}
-            numberOfLines={5}
-        >
-            {descriptionText}
-        </Text>
+        <View style={tailwind('bg-gray-300 border-b-2 border-gray-600')}>
+            <Text
+                style={[
+                    fontConfig.fontFamilyText,
+                    tailwind('bg-gray-300 p-3 w-64 h-28 text-center text-22fz')
+                ]}
+                numberOfLines={5}
+            >
+                {descriptionText}
+            </Text>
+        </View>
     );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { View, Text } from 'react-native';
 
 import fontConfig from '../../config/fontConfig.js';
 import { tailwind } from '../../../tailwind.js';
@@ -14,14 +14,16 @@ import { tailwind } from '../../../tailwind.js';
 
 export default FeelsLikeTemperature = ({ feelsLikeText }) => {
     return (
-        <Text
-            style={[
-                fontConfig.fontFamilyText,
-                tailwind('bg-gray-300 w-64 h-24 text-center text-22fz')
-            ]}
-            numberOfLines={2}
-        >
-            {feelsLikeText}
-        </Text>
+        <View style={tailwind('border-b-2 border-gray-600')}>
+            <Text
+                style={[
+                    fontConfig.fontFamilyText,
+                    tailwind('bg-gray-300 w-64 h-14 text-center text-22fz')
+                ]}
+                numberOfLines={2}
+            >
+                {feelsLikeText}
+            </Text>
+        </View>
     );
 };
