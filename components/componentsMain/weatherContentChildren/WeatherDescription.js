@@ -17,7 +17,7 @@ export default WeatherDescription = ({ descriptionText }) => {
             <Text
                 style={[
                     fontConfig.fontFamilyText,
-                    tailwind('bg-gray-300 p-3 w-64 h-28 text-center text-22fz')
+                    tailwind('bg-gray-300 p-3 w-64 h-32 text-center text-22fz')
                 ]}
                 numberOfLines={5}
             >
