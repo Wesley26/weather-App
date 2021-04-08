@@ -22,7 +22,11 @@ This app is a simple weather App. Its main functionalities include:
 
 ## Demo Screenshot Showcase
 
-TBD
+![Android day time](https://github.com/Wesley26/weather-App/blob/master/components/assets/demoScreenshots/weather_APP_android_Demo1.PNG)
+
+![Android night time](https://github.com/Wesley26/weather-App/blob/master/components/assets/demoScreenshots/weather_APP_android_Demo4.PNG)
+
+Full screenshot showcase can be found [in the components/assets/demoScreenshots folder](https://github.com/Wesley26/weather-App/tree/master/components/assets/demoScreenshots).
 
 
 ## Content of Repo
