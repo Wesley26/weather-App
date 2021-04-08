@@ -12,6 +12,8 @@ NOTE: Use command `npx create-tailwind-rn` every time you update your tailwind.c
 
 weather_App reached MVP (Minimum Viable Product) stage on April 7th, 2021. weather_App is a React Native app, built with Expo, compatible for both Android and iOS mobile devices.
 
+[Explore this app on Expo!](https://expo.io/@wesley26/projects/weather_App) Download the Expo Go app for your iOS or Android mobile device, create an account and/or log into an existing account, and follow the instructions at the given link.
+
 
 ## Main App Functions
 
