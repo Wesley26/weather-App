@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "weather_App",
+    "description": "weather_App is a React Native app, built with Expo, compatible for both Android and iOS mobile devices.",
     "slug": "weather_App",
     "version": "1.0.0",
     "orientation": "portrait",

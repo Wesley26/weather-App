@@ -1,7 +1,7 @@
 import React from 'react';
-import { View,
+import { ActivityIndicator, 
+        View,
         Text } from 'react-native';
-import { AntDesign } from '@expo/vector-icons';
 
 import fontConfig from '../../config/fontConfig.js';
 import { tailwind } from '../../../tailwind.js';
@@ -19,18 +19,15 @@ import { tailwind } from '../../../tailwind.js';
 
 export default LoadingMessage = ({ font, loadText }) => {
 
-    const loadingIconName = `loading1`;
-
     return (
 
         <View style={tailwind('bg-transparent flex-1 justify-center items-center')}>
 
             <View style={tailwind('bg-white bg-opacity-30 px-5 py-10 justify-center items-center rounded-lg')}>
 
-                <AntDesign
+                <ActivityIndicator
                     style={tailwind('bg-gray-300 p-3 w-64 h-16 text-center justify-center items-center')}
-                    name={loadingIconName}
-                    size={30}
+                    size={60}
                     color={fontConfig.loadingColor.color}
                 />
 
