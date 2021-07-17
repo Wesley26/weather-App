@@ -10,7 +10,7 @@ NOTE: Use command `npx create-tailwind-rn` every time you update your tailwind.c
 
 [Nighttime Sky Photo Source](https://unsplash.com/photos/T26KCgCPsCI?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink)
 
-[Weather Icon Source (Sun Icon)](https://github.com/kickstandapps/WeatherIcons/blob/master/PNG%20Files/Sun.png)
+[Weather Icon Source (Sun Icon)](https://github.com/kickstandapps/WeatherIcons/blob/main/PNG%20Files/Sun.png)
 
 weather_App reached MVP (Minimum Viable Product) stage on April 7th, 2021. weather_App is a React Native app, built with Expo, compatible for both Android and iOS mobile devices.
 
@@ -26,11 +26,11 @@ This app is a simple weather App. Its main functionalities include:
 
 ## Demo Screenshot Showcase
 
-![Android day time](https://github.com/Wesley26/weather-App/blob/master/components/assets/demoScreenshots/weather_APP_android_Demo1.PNG)
+![Android day time](https://github.com/Wesley26/weather-App/blob/main/components/assets/demoScreenshots/weather_APP_android_Demo1.PNG)
 
-![Android night time](https://github.com/Wesley26/weather-App/blob/master/components/assets/demoScreenshots/weather_APP_android_Demo4.PNG)
+![Android night time](https://github.com/Wesley26/weather-App/blob/main/components/assets/demoScreenshots/weather_APP_android_Demo4.PNG)
 
-Full screenshot showcase can be found [in the components/assets/demoScreenshots folder](https://github.com/Wesley26/weather-App/tree/master/components/assets/demoScreenshots).
+Full screenshot showcase can be found [in the components/assets/demoScreenshots folder](https://github.com/Wesley26/weather-App/tree/main/components/assets/demoScreenshots).
 
 
 ## Content of Repo
