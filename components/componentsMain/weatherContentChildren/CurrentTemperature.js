@@ -2,8 +2,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-import fontConfig from '../../config/fontConfig.js';
-import { tailwind } from '../../../tailwind.js';
+import { tailwind, fontConfig } from '../../../tailwind.js';
 
 /**
  * CurrentTemperatre child component

@@ -10,6 +10,9 @@ import * as Location from 'expo-location';
  * @granted - boolean value storing whether user has given their permission
  * to obtain current location
  * @coords - object storing latitude and longitude decimal values
+ * 
+ * NOTE: Location.getCurrentPositionAsync requires an accuracy value of
+ * at least 6. The app will fail to fetch weather data otherwise.
  */
 
 export default useLocation = () => {
@@ -21,14 +24,14 @@ export default useLocation = () => {
 
         try {
 
-            const { granted } = await Location.requestPermissionsAsync();
+            const { granted } = await Location.requestForegroundPermissionsAsync();
 
             if (!granted) {
                 alert(permsNotGranted);
                 return;
             };
 
-            const { coords: { latitude, longitude }} = await Location.getCurrentPositionAsync();
+            const { coords: { latitude, longitude }} = await Location.getCurrentPositionAsync({ accuracy: 6 });
 
             setLocation({ latitude, longitude })
             

@@ -1,8 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 
-import fontConfig from '../config/fontConfig.js';
-import { tailwind } from '../../tailwind.js';
+import { tailwind, fontConfig } from '../../tailwind.js';
 
 import {
             AirPressure,
