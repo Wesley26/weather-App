@@ -10,7 +10,7 @@ NOTE: Use command `npx create-tailwind-rn` every time you update your tailwind.c
 
 [Nighttime Sky Photo Source](https://unsplash.com/photos/T26KCgCPsCI?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink)
 
-[Weather Icon Source (Sun Icon)](https://github.com/kickstandapps/WeatherIcons/blob/main/PNG%20Files/Sun.png)
+[Weather Icon Source (Sun Icon)](https://github.com/kickstandapps/WeatherIcons/blob/master/PNG%20Files/Sun.png)
 
 weather_App reached MVP (Minimum Viable Product) stage on April 7th, 2021. weather_App is a React Native app, built with Expo, compatible for both Android and iOS mobile devices.
 
