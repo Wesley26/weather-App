@@ -18,6 +18,10 @@ const fontConfig = {
         fontFamily: Platform.OS === "android" ? "Roboto" : "Avenir" 
     },
 
+    switchSize: {
+        transform: [{ scaleX: 2.7 }, { scaleY: 2.7 }]
+    },
+
     loadingColor: {
         color: '#000000',
     },

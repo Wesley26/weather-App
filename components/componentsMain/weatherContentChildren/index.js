@@ -11,6 +11,7 @@ export { default as Humidity } from './Humidity.js';
 export { default as InfoButton } from './InfoButton.js';
 export { default as LoadingMessage } from './LoadingMessage.js';
 export { default as MinMaxTemp } from './MinMaxTemp.js';
+export { default as UnitSwitch } from './UnitSwitch.js';
 export { default as WeatherDescription } from './WeatherDescription.js';
 export { default as WeatherIcon } from './WeatherIcon.js';
 export { default as WeatherMain } from './WeatherMain.js';

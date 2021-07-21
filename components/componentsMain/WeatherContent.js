@@ -12,6 +12,7 @@ import {
             InfoButton,
             LoadingMessage,
             MinMaxTemp,
+            UnitSwitch,
             WeatherDescription,
             WeatherIcon,
             WeatherMain,
@@ -33,6 +34,7 @@ export default WeatherContent = () => {
     console.log(theCurrentWeather); //uncomment to see theCurrentWeather Object
 
     const loadingText = `Loading ...`;
+    const unitSwitchHeader = `Unit Switch`;
 
     if (theCurrentWeather) {
 
@@ -120,6 +122,10 @@ export default WeatherContent = () => {
 
                         <AirPressure 
                             airPressureText={airPressureText}
+                        />
+
+                        <UnitSwitch 
+                            switchHeader={unitSwitchHeader}
                         />
 
                     </View>

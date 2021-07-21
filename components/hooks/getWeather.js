@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import useLocation from '../hooks/useLocation.js';
+import setUnits from '../hooks/setUnits.js';
 
 /**
  * @getWeather - if permission was granted in useLocation() hook,
@@ -19,6 +20,7 @@ import useLocation from '../hooks/useLocation.js';
 export default getWeather = () => {
 
     const theLocation = useLocation();
+    const units = setUnits();
 
     const [currentWeather, setCurrentWeather] = useState();
 
@@ -32,7 +34,7 @@ export default getWeather = () => {
 
         if (theLocation !== undefined) {
 
-            weatherUrl = `${baseWeatherUrl}lat=${theLocation.latitude}&lon=${theLocation.longitude}&units=imperial&appid=${WEATHER_API_KEY}`;
+            weatherUrl = `${baseWeatherUrl}lat=${theLocation.latitude}&lon=${theLocation.longitude}&units=${units}&appid=${WEATHER_API_KEY}`;
             console.log(weatherUrl); //uncomment if needed
 
             const fetchWeather = async () => {
@@ -68,7 +70,7 @@ export default getWeather = () => {
 
         };
 
-    }, [theLocation]);
+    }, [theLocation, units]);
 
     return currentWeather;
 
