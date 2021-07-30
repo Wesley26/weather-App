@@ -1,20 +1,47 @@
-import { useState, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
+
+import { CurrentUnitContext } from './CurrentUnitContext.js';
 
 /**
- * WIP custom hook.
+ * @theCurrentUnit - useEffect only runs when Context 
+ * theCurrentUnit's string value changes from App.js
+ * @currentUnit - useState dynamically sets the current unit
+ * "imperial" - °F, "metric" - °C, or "standard" - °K
+ * See the OpenWeatherMap API for these unit definitions.
  */
 
 export default setUnits = () => {
 
-    const [units, setUnits] = useState("imperial");
+    const theCurrentUnit = useContext(CurrentUnitContext);
+    const [currentUnit, setCurrentUnit] = useState(``);
 
     useEffect(() => {
 
-        //todo - change weather units here
-        //set imperial (F), metric (C), and maybe standard (K)
+        /**
+         * currentUnit switches from theCurrentUnit 
+         * useContext for "imperial" - °F, 
+         * "metric" - °C, or "standard" - °K
+         */
 
-    }, []);
+        switch (theCurrentUnit) {
+            case "imperial":
+                
+                setCurrentUnit(`°F`);
+                break;
+        
+            case "metric":
 
+                setCurrentUnit(`°C`);
+                break;
 
-    return units;
+            default:
+
+                setCurrentUnit(`°K`);
+                break;
+        };
+
+    }, [theCurrentUnit]);
+
+    return currentUnit;
+    
 };

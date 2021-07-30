@@ -2,4 +2,18 @@ import React from 'react';
 
 import WeatherScreen from './components/screens/WeatherScreen';
 
-export default App = () => { return <WeatherScreen /> };
+import { CurrentUnitContext } from './components/hooks/CurrentUnitContext.js';
+
+export default App = () => { 
+    
+    return ( 
+
+        <CurrentUnitContext.Provider
+            value={"metric"}
+        >
+            <WeatherScreen />
+        </CurrentUnitContext.Provider>
+
+    );
+
+};

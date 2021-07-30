@@ -3,6 +3,8 @@ import { View } from 'react-native';
 
 import { tailwind, fontConfig } from '../../tailwind.js';
 
+import setUnits from '../hooks/setUnits.js';
+
 import {
             AirPressure,
             CityName,
@@ -30,11 +32,15 @@ import getWeather from '../hooks/getWeather.js';
 
 export default WeatherContent = () => {
 
+    const theCurrentUnit = setUnits();
     const theCurrentWeather = getWeather();
     console.log(theCurrentWeather); //uncomment to see theCurrentWeather Object
 
     const loadingText = `Loading ...`;
-    const unitSwitchHeader = `Unit Switch`;
+    const unitSwitchHeader = `Unit Settings`;
+    const unitImperialText = `Imperial Units`;
+    const unitMetricText = `Metric Units`;
+    const unitStandardText = `Standard Units`;
 
     if (theCurrentWeather) {
 
@@ -67,10 +73,12 @@ export default WeatherContent = () => {
          * de-structured object.
          */
         const tempText = `Current Temperature is: `;
-        const tempSymbol = `°F`;
-        const feelsLikeText =`It feels like: ${Math.round(feels_like)}°F`;
-        const tempMinText =`Current Low: ${Math.round(temp_min)}°F`;
-        const tempMaxText =`Current High: ${Math.round(temp_max)}°F`;
+        
+        let tempSymbol = theCurrentUnit;
+
+        const feelsLikeText =`It feels like: ${Math.round(feels_like)}${tempSymbol}`;
+        const tempMinText =`Current Low: ${Math.round(temp_min)}${tempSymbol}`;
+        const tempMaxText =`Current High: ${Math.round(temp_max)}${tempSymbol}`;
 
         const airPressureText = `Current Air Pressure: ${pressure} hPa`;
         const humidityText = `Current Humidity: ${humidity} %`;
@@ -126,6 +134,9 @@ export default WeatherContent = () => {
 
                         <UnitSwitch 
                             switchHeader={unitSwitchHeader}
+                            imperialUnits={unitImperialText}
+                            metricUnits={unitMetricText}
+                            standardUnits={unitStandardText}
                         />
 
                     </View>
