@@ -1,15 +1,17 @@
-import React from 'react';
-
-import WeatherScreen from './components/screens/WeatherScreen';
+import React, { useContext } from 'react';
 
 import { CurrentUnitContext } from './components/hooks/CurrentUnitContext.js';
 
-export default App = () => { 
+import WeatherScreen from './components/screens/WeatherScreen';
+
+export default App = () => {
+    
+    const { theCurrentUnit, setCurrentUnit } = useContext(CurrentUnitContext);
     
     return ( 
 
         <CurrentUnitContext.Provider
-            value={"metric"}
+            value={{ theCurrentUnit, setCurrentUnit }}
         >
             <WeatherScreen />
         </CurrentUnitContext.Provider>

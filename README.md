@@ -34,7 +34,7 @@ Full screenshot showcase can be found [in the components/assets/demoScreenshots 
 
 
 ## Content of Repo
-Content of this repo was updated since July 30th, 2021.
+Content of this repo was updated since August 2nd, 2021.
 
 **components folder:**
 
@@ -65,7 +65,7 @@ Content of this repo was updated since July 30th, 2021.
 
 5. hooks:
 - Contains all custom hooks. Custom hooks include:
-- `CurrentUnitContext.js`: @CurrentUnitContext - create the Context for CurrentUnitContext: change weather units, set imperial (F), metric (C), and standard (K).
+- `CurrentUnitContext.js`: @CurrentUnitContext - create the Context for CurrentUnitContext @theCurrentUnit - String to initialize current unit text. set "imperial" (F), "metric" (C), and "standard" (K). @setCurrentUnit - initialized as empty function. Function's purpose is to set the Current Unit.
 - `getWeather.js`: getWeather - if permission was granted in useLocation() hook, uses Object theLocation containing lat. and long. coordinates as decimal number values. Returns the currentWeather. useEffect() relies on the value of Object theLocation. @WEATHER_API_KEY - accessed from clientSecret directory, hidden for repo security and must be manually provided. @currentWeather - useState hook to store JSON result of current weather data. @baseWeatherUrl - initial OpenWeatherMap API access string @weatherUrl - Full OpenWeatherMap API access string.
 - `setUnits.js`: @theCurrentUnit - useEffect only runs when Context theCurrentUnit's string value changes from App.js @currentUnit - useState dynamically sets the current unit "imperial" - °F, "metric" - °C, or "standard" - °K See the OpenWeatherMap API for these unit definitions.
 - `useLocation.js`: @getLocation - Hook to request permission from the user to obtain the mobile device's current location. Returns the location value. @permsNotGranted - alert the user permission to use their current location is needed. @location - useState hook storing in state device's current location. @granted - boolean value storing whether user has given their permission to obtain current location. @coords - object storing latitude and longitude decimal values.

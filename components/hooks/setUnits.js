@@ -12,7 +12,7 @@ import { CurrentUnitContext } from './CurrentUnitContext.js';
 
 export default setUnits = () => {
 
-    const theCurrentUnit = useContext(CurrentUnitContext);
+    const { theCurrentUnit } = useContext(CurrentUnitContext);
     const [currentUnit, setCurrentUnit] = useState(``);
 
     useEffect(() => {

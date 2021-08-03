@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 
 import { tailwind } from '../../../tailwind.js';
+
+import { CurrentUnitContext } from '../../hooks/CurrentUnitContext.js';
 
 /**
  * Unit Switcher child component. Based on switch's boolean
@@ -16,7 +18,15 @@ export default UnitSwitch = ({ imperialUnits,
                                 standardUnits, 
                                 switchHeader }) => {
 
-    //const [theCurrentUnitSetting, setTheCurrentUnitSetting] = useState("imperial");
+    const { theCurrentUnit, setCurrentUnit } = useContext(CurrentUnitContext);
+
+    //const [theCurrentUnitSetting, setCurrentUnitSetting] = useState("imperial");
+
+    useEffect(() => {
+
+        //Todo - Add the logic which sets the unit for theCurrentUnit here.
+
+    }, []);
 
     return (
 

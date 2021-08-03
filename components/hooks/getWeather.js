@@ -23,7 +23,7 @@ import { CurrentUnitContext } from '../hooks/CurrentUnitContext.js';
 export default getWeather = () => {
 
     const theLocation = useLocation();
-    const theCurrentUnit = useContext(CurrentUnitContext);
+    const { theCurrentUnit } = useContext(CurrentUnitContext);
 
     const [currentWeather, setCurrentWeather] = useState();
 
