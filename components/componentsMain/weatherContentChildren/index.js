@@ -1,6 +1,11 @@
 /**
  * Export all children components for
  * WeatherContent.js here.
+ * 
+ * In general, these components are 
+ * not re-usable. These are components
+ * which render information for
+ * WeatherContent.js.
  */
 
 export { default as AirPressure } from './AirPressure.js';

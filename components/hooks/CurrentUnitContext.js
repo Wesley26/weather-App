@@ -12,7 +12,7 @@ import { createContext } from 'react';
 
 export let CurrentUnitContext = createContext({
 
-    theCurrentUnit: "metric",
+    theCurrentUnit: "",
     setCurrentUnit: () => {},
 
 });

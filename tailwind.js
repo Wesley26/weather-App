@@ -1,4 +1,4 @@
-import { Platform } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 import {create} from 'tailwind-rn';
 import styles from './styles.json';
 
@@ -12,7 +12,7 @@ const {tailwind, getColor} = create(styles);
  * generated from tailwind.config.js.
  */
 
-const fontConfig = {
+const fontConfig = StyleSheet.create({
 
     fontFamilyText: { 
         fontFamily: Platform.OS === "android" ? "Roboto" : "Avenir" 
@@ -38,6 +38,6 @@ const fontConfig = {
         color: '#000000',
     },
 
-};
+});
 
 export { tailwind, getColor, fontConfig };

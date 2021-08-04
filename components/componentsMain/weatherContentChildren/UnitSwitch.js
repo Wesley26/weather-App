@@ -1,16 +1,25 @@
-import React, { useContext, useEffect } from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import React, { useContext } from 'react';
+import { Text, View } from 'react-native';
 
 import { tailwind } from '../../../tailwind.js';
 
 import { CurrentUnitContext } from '../../hooks/CurrentUnitContext.js';
 
+import { 
+        UnitSettingButton 
+       } from '../reusableComponents/index.js';
+
 /**
- * Unit Switcher child component. Based on switch's boolean
- * value useState hook isEnabled, set useEffect hook currentUnit
- * to either "imperial" or "metric".
+ * UnitSwitch child component.
  * 
- * A useReducer hook should be implemented here - still WIP.
+ * @param - imperialUnits: Text passed from WeatherContext.js for
+ * imperial units touchable opacity button label.
+ * @param - metricUnits: Text passed from WeatherContext.js for
+ * metric units touchable opacity button label.
+ * @param - standardUnits: Text passed from WeatherContext.js for
+ * standard units touchable opacity button label.
+ * @param - switchHeader: Header label for this component passed
+ * from WeatherContext.js
  */
 
 export default UnitSwitch = ({ imperialUnits, 
@@ -19,14 +28,6 @@ export default UnitSwitch = ({ imperialUnits,
                                 switchHeader }) => {
 
     const { theCurrentUnit, setCurrentUnit } = useContext(CurrentUnitContext);
-
-    //const [theCurrentUnitSetting, setCurrentUnitSetting] = useState("imperial");
-
-    useEffect(() => {
-
-        //Todo - Add the logic which sets the unit for theCurrentUnit here.
-
-    }, []);
 
     return (
 
@@ -38,14 +39,17 @@ export default UnitSwitch = ({ imperialUnits,
 
             <View style={tailwind('flex-1 justify-center items-center')}>
 
-                <TouchableOpacity
-                    style={tailwind('')}
-                    onPress={() => console.log(`The Demo metric button has been pressed.`)}
-                >
-                    <Text style={tailwind('')}>
-                        {metricUnits}
-                    </Text>
-                </TouchableOpacity>
+                <UnitSettingButton
+                    setUnit={() => {
+                        if (theCurrentUnit !== "metric") {
+                            setCurrentUnit("metric");
+                        };
+                        console.log(`The ${metricUnits} button was pressed.`);
+                    }}
+                    styleTO={tailwind('')}
+                    styleText={tailwind('')}
+                    unitText={metricUnits}
+                />
 
             </View>
 

@@ -23,6 +23,7 @@ This app is a simple weather App. Its main functionalities include:
 - Custom hook cycles through dynamic Day/Night background images at 6am and 6pm.
 - Custom hook asks user for permission to use their current mobile device's location. Current location is collected with latitude and longitude decimal coordinates.
 - Custom hook fetches weather asynchronously once for each time app is opened.
+- Custom hook changes the temperature units. Currently supported temperature units are Fahrenheit, Celsius, and Kelvin.
 
 ## Demo Screenshot Showcase
 
@@ -47,7 +48,10 @@ Content of this repo was updated since August 2nd, 2021.
 3. componentsMain:
 - Contains all the weather content components. `WeatherContent.js` is the main weather content component. All child components must be imported to this file.
 
-- weatherContentChildren: Contains all child weather content components. Index.js file exports all children components. The children weather content components include:
+- reusableComponents: Contains all reusable jsx components for this app. Index.js file exports all children components. The reusable components folder includes:
+- `UnitSettingButton.js`: UnitSettingButton custom TouchableOpacity reusable button component. @setUnit - Function for the TouchableOpacity onPress param. @styleTO - Style param for TouchableOpacity component. @styleText - Style param from Text component. @unitText - Text inside the Text component (button label).
+
+- weatherContentChildren: Contains all child weather content components. Index.js file exports all children components. The children weather content components folder include:
 - `AirPressure.js`: Air pressure text passed from WeatherContent.js
 - `CityName.js`: The current city name de-structured from WeatherContent.js
 - `CurrentTemperature.js`: tempText, temp: main temperature, and tempSymbol: units symbol passed from WeatherContent.js
@@ -55,13 +59,14 @@ Content of this repo was updated since August 2nd, 2021.
 - `Humidity.js`: humidityText: humidity string data passed from WeatherContent.js
 - `InfoButton.js`: returns an info button component displaying information about the app author's name and API source as an alert.
 - `LoadingMessage.js`: component returns loading message if the WeatherContent component does not have any weather data. loadText: string which takes loading text to display to user. font: object to pass through font text config from WeatherContent.js component.
-- `MinMaxTemp.js`: tempMinText: minimum temperature passed from WeatherContent.js tempMinText: maximum temperature passed from WeatherContent.js
+- `MinMaxTemp.js`: tempMinText: minimum temperature passed from WeatherContent.js tempMinText: maximum temperature passed from WeatherContent.js.
+- `UnitSwitch.js`: UnitSwitch child component. imperialUnits: Text passed from WeatherContext.js for imperial units touchable opacity button label. metricUnits: Text passed from WeatherContext.js for metric units touchable opacity button label. standardUnits: Text passed from WeatherContext.js for standard units touchable opacity button label. switchHeader: Header label for this component passed from WeatherContext.js.
 - `WeatherDescription.js`: descriptionText: Description of the main weather passed from WeatherContent.js
 - `WeatherIcon.js`: icon: passes the icon fetched in WeatherContent.js
 - `WeatherMain.js`: mainWeatherName: Displayed in all caps, the name of the main weather Object that is de-structured from WeatherContent.js
 
 4. config:
-- Contains fontConfig.js, Font Family and Font Color config file. Export to all components that require custom font settings that tailwind-rn does not support. All styles that use supported tailwind classes must be generated from tailwind.config.js.
+- Contains placeholder.txt. This config folder will remain as a placeholder in case any back-end libraries are introduced in the future.
 
 5. hooks:
 - Contains all custom hooks. Custom hooks include:
@@ -76,7 +81,7 @@ Content of this repo was updated since August 2nd, 2021.
 
 **root folder:**
 
-1. App.js - renders WeatherScreen.js, Context Provider for CurrentUnitContext.
+1. App.js - Renders WeatherScreen.js, Context Provider for CurrentUnitContext. Runs the entire app. @theCurrentUnit - String value, inherits string Context from CurrentUnitContext. @setCurrentUnit - Function, inherits empty function Context from CurrentUnitContext. useState hook contains a global scope for the entire app.
 2. styles.json - tailwindCSS "style sheet" in json Object format
 3. tailwind.config.js - tailwindCSS config file, generate your StyleSheet objects here in theme.extend. See the tailwindCSS documentation for more information.
 4. tailwind.js - create the tailwindCSS style here for react native app.
