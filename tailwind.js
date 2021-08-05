@@ -14,13 +14,18 @@ const {tailwind, getColor} = create(styles);
 
 const fontConfig = StyleSheet.create({
 
+    //global manual font config/color styles
+
     fontFamilyText: { 
         fontFamily: Platform.OS === "android" ? "Roboto" : "Avenir" 
     },
 
+    /**
+    //Keep this style in case switches are ever re-introduced.
     switchSize: {
         transform: [{ scaleX: 2.7 }, { scaleY: 2.7 }]
     },
+    */
 
     loadingColor: {
         color: '#000000',
@@ -36,6 +41,24 @@ const fontConfig = StyleSheet.create({
 
     tempMaxColor: {
         color: '#000000',
+    },
+
+    //manual font config/color styles for UnitSwitch.js
+
+    btn_BorderColor: {
+        borderColor: `#000000`,
+    },
+
+    btn_ImperialColor: {
+        backgroundColor: `#8fbc8f`,
+    },
+
+    btn_MetricColor: {
+        backgroundColor: `#6495ed`,
+    },
+
+    btn_StandardColor: {
+        backgroundColor: `#b0e0e6`,
     },
 
 });

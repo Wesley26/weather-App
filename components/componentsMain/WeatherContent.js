@@ -40,7 +40,7 @@ export default WeatherContent = () => {
     const unitSwitchHeader = `Unit Settings`;
     const unitImperialText = `Imperial Units`;
     const unitMetricText = `Metric Units`;
-    const unitStandardText = `Standard Units`;
+    const unitStandardText = `Scientific Units`;
 
     if (theCurrentWeather) {
 

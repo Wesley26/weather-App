@@ -41,7 +41,7 @@ export default CurrentTemperature = ({ tempText, temp, tempSymbol }) => {
                     style={[
                         fontConfig.fontFamilyText,
                         fontConfig.temperatureColor,
-                        tailwind('bg-gray-300 pb-20 pr-10 w-36 h-32 text-center text-44fz')
+                        tailwind('bg-gray-300 pb-20 pr-10 w-44 h-32 text-center text-44fz')
                     ]}
                     numberOfLines={1}
                 >
