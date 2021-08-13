@@ -1,43 +1,24 @@
-import React, { useEffect, useState } from 'react';
-import { ImageBackground, 
-        ScrollView, 
-        View } from 'react-native';
+import React from 'react';
+import { ImageBackground, ScrollView, View } from 'react-native';
 
 import { tailwind } from '../../tailwind.js';
 
 import WeatherContent from '../componentsMain/WeatherContent.js';
 
+import setBGImage from '../hooks/setBGImage.js';
+
 /**
  * @WeatherScreen - Base Weather Screen component,
  * imports WeatherContent to obtain weather data.
- * 
- * @imageBG - Object stores background images day and night
- * @backgroundImage - useState hook determines from hour Date Object
- * whether to display day or night background.
- * @settingBG - truthy determines if it is day or night hour
+ * @backgroundImage - Custom hook importing the
+ * background image set by setBGImage.
  * 
  * @returns - Weather Screen base component
  */
 
 export default WeatherScreen = () => {
 
-    const imageBG = {
-        day: require("../assets/mainPhotos/Day_Clouds.jpg"),
-        night: require("../assets/mainPhotos/Night_Sky.jpg"),
-    };
-
-    let hour = new Date().getHours();
-
-    const [backgroundImage, setBackgroundImage] = useState();
-
-    useEffect(() => {
-
-        console.log(`The Current Hour is: ${hour}`); //uncomment to see current hour
-
-        let settingBG = hour >= 6 && hour <= 18 ? imageBG.day : imageBG.night;
-        setBackgroundImage(settingBG);
-
-    }, [hour]);
+    const backgroundImage = setBGImage();
 
     return (
 

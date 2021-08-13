@@ -12,6 +12,7 @@ import {
             FeelsLikeTemperature,
             Humidity,
             InfoButton,
+            InfoPanel,
             LoadingMessage,
             MinMaxTemp,
             UnitSwitch,
@@ -41,6 +42,12 @@ export default WeatherContent = () => {
     const unitImperialText = `Imperial Units`;
     const unitMetricText = `Metric Units`;
     const unitStandardText = `Scientific Units`;
+
+    /**
+     * Add text to display for InfoPanel component here
+     */
+
+    const infoPanelText = `Weather-App, created by Wesley Dzitzer. Weather Data is obtained from OpenWeather Map.`;
 
     if (theCurrentWeather) {
 
@@ -140,6 +147,10 @@ export default WeatherContent = () => {
                         />
 
                     </View>
+
+                    <InfoPanel 
+                        infoPanelText={infoPanelText}
+                    />
 
                     <InfoButton />
 

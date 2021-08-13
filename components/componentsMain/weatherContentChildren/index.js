@@ -14,6 +14,7 @@ export { default as CurrentTemperature } from './CurrentTemperature.js';
 export { default as FeelsLikeTemperature } from './FeelsLikeTemperature.js';
 export { default as Humidity } from './Humidity.js';
 export { default as InfoButton } from './InfoButton.js';
+export { default as InfoPanel } from './InfoPanel.js';
 export { default as LoadingMessage } from './LoadingMessage.js';
 export { default as MinMaxTemp } from './MinMaxTemp.js';
 export { default as UnitSwitch } from './UnitSwitch.js';

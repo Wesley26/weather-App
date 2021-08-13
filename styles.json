@@ -75,6 +75,9 @@
 	"h-32": {
 		"height": 128
 	},
+	"h-56": {
+		"height": 224
+	},
 	"h-96": {
 		"height": 384
 	},
@@ -398,6 +401,10 @@
 		"paddingLeft": 20,
 		"paddingRight": 20
 	},
+	"px-10": {
+		"paddingLeft": 40,
+		"paddingRight": 40
+	},
 	"px-1.5": {
 		"paddingLeft": 6,
 		"paddingRight": 6
@@ -409,6 +416,9 @@
 	"py-5s": {
 		"paddingTop": 5,
 		"paddingBottom": 5
+	},
+	"pt-6": {
+		"paddingTop": 24
 	},
 	"pt-7": {
 		"paddingTop": 28
