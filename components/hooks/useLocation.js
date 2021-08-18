@@ -13,6 +13,10 @@ import * as Location from 'expo-location';
  * 
  * NOTE: Location.getCurrentPositionAsync requires an accuracy value of
  * at least 6. The app will fail to fetch weather data otherwise.
+ * NOTE 2: As of 08/17/2021, this component is compatible only for
+ * Android 10 and below. iOS so far is unaffected. Re-visit this
+ * component if expo-location is updated to be compatible for
+ * Android 11.
  */
 
 export default useLocation = () => {
@@ -33,6 +37,7 @@ export default useLocation = () => {
 
             const { coords: { latitude, longitude }} = await Location.getCurrentPositionAsync({ accuracy: 6 });
 
+            //console.log(`The coords are: ${ latitude, longitude }`); //Uncomment for testing
             setLocation({ latitude, longitude })
             
         } catch (error) {

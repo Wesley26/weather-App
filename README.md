@@ -13,6 +13,7 @@ NOTE: Use command `npx create-tailwind-rn` every time you update your tailwind.c
 [Weather Icon Source (Sun Icon)](https://github.com/kickstandapps/WeatherIcons/blob/master/PNG%20Files/Sun.png)
 
 weather_App reached MVP (Minimum Viable Product) stage on April 7th, 2021. weather_App is a React Native app, built with Expo, compatible for both Android and iOS mobile devices.
+As of August 17th, 2021, this mobile app is compatible with iOS version 14.7.1 and Android version 10 and older.
 
 [Explore this app on Expo!](https://expo.io/@wesley26/projects/weather_App) Download the Expo Go app for your iOS or Android mobile device, create an account and/or log into an existing account, and follow the instructions at the given link.
 

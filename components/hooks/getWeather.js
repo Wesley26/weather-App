@@ -33,7 +33,7 @@ export default getWeather = () => {
 
         let baseWeatherUrl = 'https://api.openweathermap.org/data/2.5/weather?', 
             weatherUrl = "";
-        //console.log(theLocation); //confirm we are getting location, uncomment if needed
+        //console.log(`Current location: ${theLocation}`); //confirm we are getting location, uncomment if needed
         console.log(`${theCurrentUnit} is the currently set unit.`); //confirm we are getting unit set
 
         if (theLocation !== undefined) {
