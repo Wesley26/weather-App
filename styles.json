@@ -26,6 +26,12 @@
 		"marginBottom": 12,
 		"marginLeft": 12
 	},
+	"m-4": {
+		"marginTop": 16,
+		"marginRight": 16,
+		"marginBottom": 16,
+		"marginLeft": 16
+	},
 	"m-8": {
 		"marginTop": 32,
 		"marginRight": 32,
@@ -59,6 +65,15 @@
 	},
 	"hidden": {
 		"display": "none"
+	},
+	"h-1": {
+		"height": 4
+	},
+	"h-4": {
+		"height": 16
+	},
+	"h-8": {
+		"height": 32
 	},
 	"h-14": {
 		"height": 56
@@ -205,6 +220,9 @@
 	},
 	"self-stretch": {
 		"alignSelf": "stretch"
+	},
+	"self-baseline": {
+		"alignSelf": "baseline"
 	},
 	"overflow-hidden": {
 		"overflow": "hidden"

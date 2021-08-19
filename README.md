@@ -36,7 +36,7 @@ Full screenshot showcase can be found [in the components/assets/demoScreenshots 
 
 
 ## Content of Repo
-Content of this repo was updated since August 12th, 2021.
+Content of this repo was updated since August 19th, 2021.
 
 **components folder:**
 
@@ -58,7 +58,7 @@ Content of this repo was updated since August 12th, 2021.
 - `CurrentTemperature.js`: tempText, temp: main temperature, and tempSymbol: units symbol passed from WeatherContent.js
 - `FeelsLikeTemperature.js`:feelsLikeText: string de-structured from WeatherContent.js containing the temperature as it feels like outside.
 - `Humidity.js`: humidityText: humidity string data passed from WeatherContent.js
-- `InfoButton.js`: returns an info button component displaying information about the app author's name and API source as an alert.
+- `InfoButton.js`: InfoButton child component @infoPanelToggle - Inherited from InfoPanelContext.js @setInfoPanelToggle - Inherited from InfoPanelContext.js @infoIconName - Determines which platform (iOS/android) and displays the correct IonIcon. @returns - InfoButton component
 - `LoadingMessage.js`: component returns loading message if the WeatherContent component does not have any weather data. loadText: string which takes loading text to display to user. font: object to pass through font text config from WeatherContent.js component.
 - `MinMaxTemp.js`: tempMinText: minimum temperature passed from WeatherContent.js tempMinText: maximum temperature passed from WeatherContent.js.
 - `UnitSwitch.js`: UnitSwitch child component. imperialUnits: Text passed from WeatherContext.js for imperial units touchable opacity button label. metricUnits: Text passed from WeatherContext.js for metric units touchable opacity button label. standardUnits: Text passed from WeatherContext.js for standard units touchable opacity button label. switchHeader: Header label for this component passed from WeatherContext.js.
@@ -73,6 +73,7 @@ Content of this repo was updated since August 12th, 2021.
 - Contains all custom hooks. Custom hooks include:
 - `CurrentUnitContext.js`: @CurrentUnitContext - create the Context for CurrentUnitContext @theCurrentUnit - String to initialize current unit text. set "imperial" (F), "metric" (C), and "standard" (K). @setCurrentUnit - initialized as empty function. Function's purpose is to set the Current Unit.
 - `getWeather.js`: getWeather - if permission was granted in useLocation() hook, uses Object theLocation containing lat. and long. coordinates as decimal number values. Returns the currentWeather. useEffect() relies on the value of Object theLocation. @WEATHER_API_KEY - accessed from clientSecret directory, hidden for repo security and must be manually provided. @currentWeather - useState hook to store JSON result of current weather data. @baseWeatherUrl - initial OpenWeatherMap API access string @weatherUrl - Full OpenWeatherMap API access string.
+- `InfoPanelContext.js`: @InfoPanelContext - create the Context for InfoPanelContext. @infoPanelToggle - Boolean which determines whether the Info Panel is visible (true) or not visible (false) @setInfoPanelToggle - Initialized as empty function. Function's purpose is to set the infoPanelToggle.
 - `setBGImage.js`: @imageBG - Object stores background images day and night @backgroundImage - useState hook determines from hour Date Object whether to display day or night background. Hook returns this value. @settingBG - truthy determines if it is day or night hour.
 - `setUnits.js`: @theCurrentUnit - useEffect only runs when Context theCurrentUnit's string value changes from App.js @currentUnit - useState dynamically sets the current unit "imperial" - °F, "metric" - °C, or "standard" - °K See the OpenWeatherMap API for these unit definitions.
 - `useLocation.js`: @getLocation - Hook to request permission from the user to obtain the mobile device's current location. Returns the location value. @permsNotGranted - alert the user permission to use their current location is needed. @location - useState hook storing in state device's current location. @granted - Boolean value storing whether user has given their permission to obtain current location. @coords - object storing latitude and longitude decimal values.
@@ -83,7 +84,7 @@ Content of this repo was updated since August 12th, 2021.
 
 **root folder:**
 
-1. App.js - Renders WeatherScreen.js, Context Provider for CurrentUnitContext. Runs the entire app. @theCurrentUnit - String value, inherits string Context from CurrentUnitContext. @setCurrentUnit - Function, inherits empty function Context from CurrentUnitContext. useState hook contains a global scope for the entire app.
+1. App.js - Renders WeatherScreen.js, Context Provider for CurrentUnitContext and InfoPanelContext.Runs the entire app. @theCurrentUnit - String value, inherits string Context from CurrentUnitContext. @setCurrentUnit - Function, inherits empty function Context from CurrentUnitContext. @infoPanelToggle - Boolean value, inherits boolean Context from InfoPanelContext. @setInfoPanelToggle - Function, inherits empty function Context from InfoPanelContext. All useState hooks contain a global scope for the entire app.
 2. styles.json - tailwindCSS "style sheet" in json Object format
 3. tailwind.config.js - tailwindCSS config file, generate your StyleSheet objects here in theme.extend. See the tailwindCSS documentation for more information.
 4. tailwind.js - create the tailwindCSS style here for react native app.

@@ -1,27 +1,27 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View } from 'react-native';
 
-import { tailwind, fontConfig } from '../../tailwind.js';
-
-import setUnits from '../hooks/setUnits.js';
-
 import {
-            AirPressure,
-            CityName,
-            CurrentTemperature,
-            FeelsLikeTemperature,
-            Humidity,
-            InfoButton,
-            InfoPanel,
-            LoadingMessage,
-            MinMaxTemp,
-            UnitSwitch,
-            WeatherDescription,
-            WeatherIcon,
-            WeatherMain,
+    AirPressure,
+    CityName,
+    CurrentTemperature,
+    FeelsLikeTemperature,
+    Humidity,
+    InfoButton,
+    InfoPanel,
+    LoadingMessage,
+    MinMaxTemp,
+    UnitSwitch,
+    WeatherDescription,
+    WeatherIcon,
+    WeatherMain,
 } from './weatherContentChildren/index.js';
 
 import getWeather from '../hooks/getWeather.js';
+import { InfoPanelContext } from '../hooks/InfoPanelContext.js';
+import setUnits from '../hooks/setUnits.js';
+
+import { tailwind, fontConfig } from '../../tailwind.js';
 
 /**
  * @WeatherContent - calls getWeather to import and display
@@ -32,6 +32,8 @@ import getWeather from '../hooks/getWeather.js';
  */
 
 export default WeatherContent = () => {
+
+    const { infoPanelToggle } = useContext(InfoPanelContext);
 
     const theCurrentUnit = setUnits();
     const theCurrentWeather = getWeather();
@@ -148,9 +150,14 @@ export default WeatherContent = () => {
 
                     </View>
 
-                    <InfoPanel 
-                        infoPanelText={infoPanelText}
-                    />
+                    <View>
+                        { infoPanelToggle ? 
+                        (
+                            <InfoPanel 
+                                infoPanelText={infoPanelText}
+                            />
+                        ) : null }
+                    </View>
 
                     <InfoButton />
 
