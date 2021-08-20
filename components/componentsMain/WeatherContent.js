@@ -49,7 +49,15 @@ export default WeatherContent = () => {
      * Add text to display for InfoPanel component here
      */
 
-    const infoPanelText = `Weather-App, created by Wesley Dzitzer. Weather Data is obtained from OpenWeather Map.`;
+    const infoPanelText = {
+
+    one: `Pocket Weather, created by Wesley Dzitzer. Weather Data is obtained from OpenWeather Map.`,
+    two: `For any inquiries and/or feedback, contact me on my website: `,
+    contactUrl: `https://wesleywebdev.com/contactMe`,
+    three: `wesleywebdev.com`
+
+    };
+
 
     if (theCurrentWeather) {
 

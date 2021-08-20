@@ -61,6 +61,10 @@ const fontConfig = StyleSheet.create({
         backgroundColor: `#b0e0e6`,
     },
 
+    btn_websiteUrlColor: {
+        backgroundColor: `#90ee90`,
+    },
+
 });
 
 export { tailwind, getColor, fontConfig };

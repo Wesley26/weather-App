@@ -17,6 +17,7 @@ module.exports = {
         '3bw': '3px',
       },
       fontSize: {
+        '20fz': '20px',
         '22fz': '22px',
         '25fz': '25px',
         '44fz': '44px',

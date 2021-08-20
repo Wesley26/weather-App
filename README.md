@@ -1,4 +1,4 @@
-# weather_App React Native App
+# Pocket Weather React Native App
 
 This React Native App uses the following dependencies: [React Native Docs (expo)](https://reactnative.dev/), [Expo](https://docs.expo.io/), [TailwindCSS](https://tailwindcss.com/), [Tailwind-RN](https://github.com/vadimdemedes/tailwind-rn#readme), [Expo Icons (AntDesign, IonIcons, MaterialCommunityIcons)](https://icons.expo.fyi/), and [Expo Location](https://docs.expo.io/versions/v40.0.0/sdk/location/).
 
@@ -12,7 +12,7 @@ NOTE: Use command `npx create-tailwind-rn` every time you update your tailwind.c
 
 [Weather Icon Source (Sun Icon)](https://github.com/kickstandapps/WeatherIcons/blob/master/PNG%20Files/Sun.png)
 
-weather_App reached MVP (Minimum Viable Product) stage on April 7th, 2021. weather_App is a React Native app, built with Expo, compatible for both Android and iOS mobile devices.
+Pocket Weather (project named weather_App) reached MVP (Minimum Viable Product) stage on April 7th, 2021. Pocket Weather is a React Native app, built with Expo, compatible for both Android and iOS mobile devices.
 As of August 17th, 2021, this mobile app is compatible with iOS version 14.7.1 and Android version 10 and older.
 
 [Explore this app on Expo!](https://expo.io/@wesley26/projects/weather_App) Download the Expo Go app for your iOS or Android mobile device, create an account and/or log into an existing account, and follow the instructions at the given link.
@@ -36,7 +36,7 @@ Full screenshot showcase can be found [in the components/assets/demoScreenshots 
 
 
 ## Content of Repo
-Content of this repo was updated since August 19th, 2021.
+Content of this repo was updated since August 20th, 2021.
 
 **components folder:**
 
@@ -59,6 +59,7 @@ Content of this repo was updated since August 19th, 2021.
 - `FeelsLikeTemperature.js`:feelsLikeText: string de-structured from WeatherContent.js containing the temperature as it feels like outside.
 - `Humidity.js`: humidityText: humidity string data passed from WeatherContent.js
 - `InfoButton.js`: InfoButton child component @infoPanelToggle - Inherited from InfoPanelContext.js @setInfoPanelToggle - Inherited from InfoPanelContext.js @infoIconName - Determines which platform (iOS/android) and displays the correct IonIcon. @returns - InfoButton component
+- `InfoPanel.js`: Info Panel child component. @infoPanelText - text object passed from WeatherContent.js. The text object contains the text describing the app in a brief summary to the end user, instructions on how the end user can submit feedback, and a link going back to portfolio website contact me page. NOTE: UnitSettingButton is being re-used as a Linking website URL button.Please take note of the documentation for the button and what it is doing (example: setUnit is opening a URL link instead of changing the unit settings). @returns - InfoPanel component
 - `LoadingMessage.js`: component returns loading message if the WeatherContent component does not have any weather data. loadText: string which takes loading text to display to user. font: object to pass through font text config from WeatherContent.js component.
 - `MinMaxTemp.js`: tempMinText: minimum temperature passed from WeatherContent.js tempMinText: maximum temperature passed from WeatherContent.js.
 - `UnitSwitch.js`: UnitSwitch child component. imperialUnits: Text passed from WeatherContext.js for imperial units touchable opacity button label. metricUnits: Text passed from WeatherContext.js for metric units touchable opacity button label. standardUnits: Text passed from WeatherContext.js for standard units touchable opacity button label. switchHeader: Header label for this component passed from WeatherContext.js.
