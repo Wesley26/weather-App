@@ -36,7 +36,7 @@ Full screenshot showcase can be found [in the components/assets/demoScreenshots 
 
 
 ## Content of Repo
-Content of this repo was updated since August 20th, 2021.
+Content of this repo was updated since August 24th, 2021.
 
 **components folder:**
 
@@ -81,7 +81,7 @@ Content of this repo was updated since August 20th, 2021.
 
 6. screens:
 - Contains all screen components. Screen components include:
-- `WeatherScreen.js`: @WeatherScreen - Base Weather Screen component, imports WeatherContent to obtain weather data. @backgroundImage - Custom hook importing the background image set by setBGImage. @returns - Weather Screen base component.
+- `WeatherScreen.js`: @WeatherScreen - Base Weather Screen component, imports WeatherContent to obtain weather data. @backgroundImage - Custom hook importing the background image set by setBGImage. @scrollViewRef - useRef hook sets a reference point so scrollToEnd() can be implemented for the scrollView's onContentSizeChange prop. @returns - Weather Screen base component.
 
 **root folder:**
 

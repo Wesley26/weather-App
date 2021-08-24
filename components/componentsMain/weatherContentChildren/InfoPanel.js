@@ -1,9 +1,11 @@
-import React from 'react';
-import { Linking, View, Text } from 'react-native';
+import React, { useContext, useEffect, useState } from 'react';
+import { Animated, Linking, View, Text } from 'react-native';
 
 import {
     UnitSettingButton,
 } from '../reusableComponents/index.js';
+
+import { InfoPanelContext } from '../../hooks/InfoPanelContext.js';
 
 import { tailwind, fontConfig } from '../../../tailwind.js';
 
@@ -25,9 +27,44 @@ import { tailwind, fontConfig } from '../../../tailwind.js';
 
 export default InfoPanel = ({ infoPanelText }) => {
 
+    const { infoPanelToggle } = useContext(InfoPanelContext);
+
+    /**
+     * Animated spring while this
+     * component appears to the end
+     * user.
+     */
+
+    const [springAnimate] = useState(new Animated.Value(0));
+
+    useEffect(() => {
+
+        if (infoPanelToggle === true) {
+
+            Animated.spring(springAnimate, {
+                toValue: 1,
+                friction: 1,
+                useNativeDriver: true
+            }).start(); //spring in
+
+        } else {
+
+            Animated.spring(springAnimate, {
+                toValue: 0,
+                friction: 1,
+                useNativeDriver: true
+            }).start(); //spring out
+
+        };
+
+    }, [infoPanelToggle]);
+
     return (
 
-        <View style={tailwind('px-10 pt-6 pb-12 justify-center items-center flex-col')}>
+        <Animated.View style={[
+                { transform: [{ scale: springAnimate }]},
+                tailwind('px-10 pt-6 pb-12 justify-center items-center flex-col')
+            ]}>
 
             <Text style={[
                         fontConfig.fontFamilyText,
@@ -61,7 +98,7 @@ export default InfoPanel = ({ infoPanelText }) => {
 
             </View>
 
-        </View>
+        </Animated.View>
         
     );
 };

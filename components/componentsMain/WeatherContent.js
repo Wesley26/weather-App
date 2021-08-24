@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { View } from 'react-native';
+import React, { useContext, useEffect, useState } from 'react';
+import { Animated, View } from 'react-native';
 
 import {
     AirPressure,
@@ -58,6 +58,35 @@ export default WeatherContent = () => {
 
     };
 
+    /**
+     * Animated fade in for component InfoPanel.
+     * NOTE: fade out animated isn't visible, the
+     * animation can occur quickly
+     */
+
+    const [fadeAnimate] = useState(new Animated.Value(0));
+
+    useEffect(() => {
+
+        if (infoPanelToggle === true) {
+
+            Animated.timing(fadeAnimate, {
+                toValue: 1,
+                duration: 4500,
+                useNativeDriver: true
+            }).start(); //fade in
+
+        } else {
+
+            Animated.timing(fadeAnimate, {
+                toValue: 0,
+                duration: 1000,
+                useNativeDriver: true
+            }).start(); //fade out
+
+        };
+
+    }, [infoPanelToggle]);
 
     if (theCurrentWeather) {
 
@@ -158,14 +187,18 @@ export default WeatherContent = () => {
 
                     </View>
 
-                    <View>
+                    <Animated.View style={[
+                            { opacity: fadeAnimate },
+                        ]}>
+
                         { infoPanelToggle ? 
                         (
                             <InfoPanel 
                                 infoPanelText={infoPanelText}
                             />
                         ) : null }
-                    </View>
+
+                    </Animated.View>
 
                     <InfoButton />
 
