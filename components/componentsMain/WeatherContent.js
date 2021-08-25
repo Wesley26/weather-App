@@ -72,7 +72,7 @@ export default WeatherContent = () => {
 
             Animated.timing(fadeAnimate, {
                 toValue: 1,
-                duration: 4500,
+                duration: 2500,
                 useNativeDriver: true
             }).start(); //fade in
 

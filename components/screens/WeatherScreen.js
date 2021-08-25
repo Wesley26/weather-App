@@ -1,5 +1,5 @@
-import React, { useContext, useRef } from 'react';
-import { ImageBackground, ScrollView, View } from 'react-native';
+import React, { useContext, useEffect, useRef, useState } from 'react';
+import { Animated, ImageBackground, View } from 'react-native';
 
 import WeatherContent from '../componentsMain/WeatherContent.js';
 
@@ -26,6 +26,24 @@ export default WeatherScreen = () => {
     const { infoPanelToggle } = useContext(InfoPanelContext);
     const scrollViewRef = useRef();
 
+    /**
+     * Animated spring while this
+     * component appears to the end
+     * user. Only Spring in here.
+     */
+
+    const [springScrollAnimate] = useState(new Animated.Value(0));
+
+    useEffect(() => {
+
+        Animated.spring(springScrollAnimate, {
+            toValue: 1,
+            friction: 8.3,
+            useNativeDriver: true
+        }).start(); //spring in
+
+    }, []);
+
     return (
 
         <ImageBackground
@@ -34,9 +52,12 @@ export default WeatherScreen = () => {
         >
         <View style={tailwind('bg-gray-500 flex-col w-full h-16 rounded-lg')} />
 
-            <ScrollView
+            <Animated.ScrollView
                 ref={scrollViewRef}
-                style={tailwind('pt-10 bg-transparent flex-1')}
+                style={[
+                    { transform: [{ scale: springScrollAnimate }]},
+                    tailwind('pt-10 bg-transparent flex-1')
+                ]}
                 scrollEnabled={true}
                 onContentSizeChange={
                     (contentWidth, contentHeight) => {
@@ -47,7 +68,7 @@ export default WeatherScreen = () => {
             >
                 <WeatherContent />
                 
-            </ScrollView>
+            </Animated.ScrollView>
 
         <View style={tailwind('bg-gray-500 flex-col-reverse w-full h-16 rounded-lg')} />
         </ImageBackground>
