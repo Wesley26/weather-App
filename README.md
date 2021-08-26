@@ -1,3 +1,5 @@
+![Pocket Weather Icon](https://github.com/Wesley26/weather-App/blob/main/components/assets/icon.png)
+
 # Pocket Weather React Native App
 
 This React Native App uses the following dependencies: [React Native Docs (expo)](https://reactnative.dev/), [Expo](https://docs.expo.io/), [TailwindCSS](https://tailwindcss.com/), [Tailwind-RN](https://github.com/vadimdemedes/tailwind-rn#readme), [Expo Icons (AntDesign, IonIcons, MaterialCommunityIcons)](https://icons.expo.fyi/), and [Expo Location](https://docs.expo.io/versions/v40.0.0/sdk/location/).
@@ -10,7 +12,7 @@ NOTE: Use command `npx create-tailwind-rn` every time you update your tailwind.c
 
 [Nighttime Sky Photo Source](https://unsplash.com/photos/T26KCgCPsCI?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink)
 
-[Weather Icon Source (Sun Icon)](https://github.com/kickstandapps/WeatherIcons/blob/master/PNG%20Files/Sun.png)
+[Weather Icon Source (Sun Icon, the old art icon development placeholder)](https://github.com/kickstandapps/WeatherIcons/blob/master/PNG%20Files/Sun.png)
 
 Pocket Weather (project named weather_App) reached MVP (Minimum Viable Product) stage on April 7th, 2021. Pocket Weather is a React Native app, built with Expo, compatible for both Android and iOS mobile devices.
 As of August 17th, 2021, this mobile app is compatible with iOS version 14.7.1 and Android version 10 and older.
