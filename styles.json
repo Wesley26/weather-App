@@ -414,6 +414,10 @@
 		"paddingLeft": 4,
 		"paddingRight": 4
 	},
+	"px-2": {
+		"paddingLeft": 8,
+		"paddingRight": 8
+	},
 	"px-3": {
 		"paddingLeft": 12,
 		"paddingRight": 12
@@ -430,6 +434,10 @@
 		"paddingLeft": 6,
 		"paddingRight": 6
 	},
+	"py-5": {
+		"paddingTop": 20,
+		"paddingBottom": 20
+	},
 	"py-10": {
 		"paddingTop": 40,
 		"paddingBottom": 40
@@ -437,6 +445,9 @@
 	"py-5s": {
 		"paddingTop": 5,
 		"paddingBottom": 5
+	},
+	"pt-1": {
+		"paddingTop": 4
 	},
 	"pt-6": {
 		"paddingTop": 24

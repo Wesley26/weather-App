@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Animated, View } from 'react-native';
 
 import {
+    AdBanner,
     AirPressure,
     CityName,
     CurrentTemperature,
@@ -135,7 +136,7 @@ export default WeatherContent = () => {
 
             <View style={tailwind('bg-transparent mb-24 flex-1 justify-center items-center')}>
                             
-                <View style={tailwind('bg-white bg-opacity-30 p-5 justify-center items-center rounded-lg')}>
+                <View style={tailwind('bg-white bg-opacity-30 px-2 py-5 justify-center items-center rounded-lg')}>
 
                     <View style={tailwind('p-10 justify-center items-center flex-col')}>
 
@@ -184,6 +185,12 @@ export default WeatherContent = () => {
                             metricUnits={unitMetricText}
                             standardUnits={unitStandardText}
                         />
+
+                    </View>
+
+                    <View style={tailwind('p-5 justify-center items-center flex-col')}>
+
+                        <AdBanner />
 
                     </View>
 

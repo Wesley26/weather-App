@@ -16,7 +16,8 @@
     "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
     "react-native-web": "~0.13.12",
     "tailwind-rn": "^3.0.1",
-    "tailwindcss": "^2.0.3"
+    "tailwindcss": "^2.0.3",
+    "expo-ads-admob": "~10.1.2"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0"

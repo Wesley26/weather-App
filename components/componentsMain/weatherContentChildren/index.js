@@ -8,6 +8,7 @@
  * WeatherContent.js.
  */
 
+export { default as AdBanner } from './AdBanner.js';
 export { default as AirPressure } from './AirPressure.js';
 export { default as CityName } from './CityName.js';
 export { default as CurrentTemperature } from './CurrentTemperature.js';

@@ -2,7 +2,9 @@
 
 # Pocket Weather React Native App
 
-This React Native App uses the following dependencies: [React Native Docs (expo)](https://reactnative.dev/), [Expo](https://docs.expo.io/), [TailwindCSS](https://tailwindcss.com/), [Tailwind-RN](https://github.com/vadimdemedes/tailwind-rn#readme), [Expo Icons (AntDesign, IonIcons, MaterialCommunityIcons)](https://icons.expo.fyi/), and [Expo Location](https://docs.expo.io/versions/v40.0.0/sdk/location/).
+This React Native App uses the following dependencies: [React Native Docs (expo)](https://reactnative.dev/), [Expo](https://docs.expo.io/), [TailwindCSS](https://tailwindcss.com/), [Tailwind-RN](https://github.com/vadimdemedes/tailwind-rn#readme), [Expo Icons (AntDesign, IonIcons, MaterialCommunityIcons)](https://icons.expo.fyi/), [Expo Location](https://docs.expo.io/versions/v40.0.0/sdk/location/), and [Expo Google AdMob](https://docs.expo.dev/versions/v42.0.0/sdk/admob/).
+
+**IMPORTANT NOTE:** Please read [this article for configuring test ads](https://support.google.com/admob/answer/9691433). [Google AdMob main page (requires google login)](https://apps.admob.com).
 
 Obtaining weather from [OpenWeather Map API](https://openweathermap.org/).
 
@@ -16,8 +18,9 @@ NOTE: Use command `npx create-tailwind-rn` every time you update your tailwind.c
 
 Pocket Weather (project named weather_App) reached MVP (Minimum Viable Product) stage on April 7th, 2021. Pocket Weather is a React Native app, built with Expo, compatible for both Android and iOS mobile devices.
 As of August 17th, 2021, this mobile app is compatible with iOS version 14.7.1 and Android version 10 and older.
+As of August 28th, 2021, this mobile app reached its production ready goal for Android Google Play Store deployment to be released as a free, ad financed app.
 
-[Explore this app on Expo!](https://expo.io/@wesley26/projects/weather_App) Download the Expo Go app for your iOS or Android mobile device, create an account and/or log into an existing account, and follow the instructions at the given link.
+[Explore this app on Expo!](https://expo.io/@wesley26/projects/weather_App) Download the Expo Go app for your iOS mobile device, create an account and/or log into an existing account, and follow the instructions at the given link. Due to ads being implemented for android version, use this link **ONLY** for iOS.
 
 
 ## Main App Functions
@@ -46,7 +49,7 @@ Content of this repo was updated since August 24th, 2021.
 - Contains all photo assets for app. Sub folder mainPhotos contains all the main background images. demoScreenshots contains demo screenshots of this app.
 
 2. clientSecret:
-- Contains all API keys used to interact with API's. The folder is hidden on this repo for security and must be manually provided. A json file named openWeather.json is required.
+- Contains all API keys used to interact with API's. The folder is hidden on this repo for security and must be manually provided. A json file named openWeather.json is required for OpenWeather Map API access. Another json file named adMob.json is required for ios/android Google AdMob API access.
 
 3. componentsMain:
 - Contains all the weather content components. `WeatherContent.js` is the main weather content component. All child components must be imported to this file.
@@ -55,6 +58,7 @@ Content of this repo was updated since August 24th, 2021.
 - `UnitSettingButton.js`: UnitSettingButton custom TouchableOpacity reusable button component. @setUnit - Function for the TouchableOpacity onPress param. @styleTO - Style param for TouchableOpacity component. @styleText - Style param from Text component. @unitText - Text inside the Text component (button label).
 
 - weatherContentChildren: Contains all child weather content components. Index.js file exports all children components. The children weather content components folder include:
+- `AdBanner.js`: Google AdMob child component. adMob.json is untracked for security purposes, the json requires: @AD_MOB_IOS_ID - AdMob ID imported from adMob.json for ios @AD_MOB_ANDROID_ID - AdMob ID imported from adMob.json for android @ad_ID - Platform selects which device you are currently on. Object takes the ios or android ad unit ID. PLEASE NOTE: Ensure you NEVER load a real production ad in an Android Emulator or iOS Simulator. Failure to do this can result in a ban from the AdMob program. All test ads have a test ad label.
 - `AirPressure.js`: Air pressure text passed from WeatherContent.js
 - `CityName.js`: The current city name de-structured from WeatherContent.js
 - `CurrentTemperature.js`: tempText, temp: main temperature, and tempSymbol: units symbol passed from WeatherContent.js
@@ -90,4 +94,4 @@ Content of this repo was updated since August 24th, 2021.
 1. App.js - Renders WeatherScreen.js, Context Provider for CurrentUnitContext and InfoPanelContext.Runs the entire app. @theCurrentUnit - String value, inherits string Context from CurrentUnitContext. @setCurrentUnit - Function, inherits empty function Context from CurrentUnitContext. @infoPanelToggle - Boolean value, inherits boolean Context from InfoPanelContext. @setInfoPanelToggle - Function, inherits empty function Context from InfoPanelContext. All useState hooks contain a global scope for the entire app.
 2. styles.json - tailwindCSS "style sheet" in json Object format
 3. tailwind.config.js - tailwindCSS config file, generate your StyleSheet objects here in theme.extend. See the tailwindCSS documentation for more information.
-4. tailwind.js - create the tailwindCSS style here for react native app.
+4. tailwind.js - create the tailwindCSS style here for react native app. Font Family and Font Color config. Export to all components that require custom font settings that tailwind-rn does not support.All styles that use supported tailwind classes must be generated from tailwind.config.js.
