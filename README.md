@@ -8,7 +8,7 @@ This React Native App uses the following dependencies: [React Native Docs (expo)
 
 Obtaining weather from [OpenWeather Map API](https://openweathermap.org/).
 
-NOTE: Use command `npx create-tailwind-rn` every time you update your tailwind.config.js file. This command is needed to create the styles.json file during development. The styles.json is un-tracked ONLY when purge is enabled.
+NOTE: Use command `npx create-tailwind-rn` every time you update your tailwind.config.js file. This command is needed to create the styles.json file during development. The styles.json is un-tracked ONLY when purge is enabled. Make sure in app.json, android.versionCode is incremented once per android Google Play Store submission.
 
 [Daytime Cloud Photo Source](https://unsplash.com/photos/yQorCngxzwI?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink)
 
