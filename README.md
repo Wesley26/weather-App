@@ -17,8 +17,11 @@ NOTE: Use command `npx create-tailwind-rn` every time you update your tailwind.c
 [Weather Icon Source (Sun Icon, the old art icon development placeholder)](https://github.com/kickstandapps/WeatherIcons/blob/master/PNG%20Files/Sun.png)
 
 Pocket Weather (project named weather_App) reached MVP (Minimum Viable Product) stage on April 7th, 2021. Pocket Weather is a React Native app, built with Expo, compatible for both Android and iOS mobile devices.
-As of August 17th, 2021, this mobile app is compatible with iOS version 14.7.1 and Android version 10 and older.
+As of September 7th, 2021, this mobile app is compatible with iOS version 14.7.1 and Android version 11 and older.
 As of August 28th, 2021, this mobile app reached its production ready goal for Android Google Play Store deployment to be released as a free, ad financed app.
+
+![Google Play Store button](https://texttofloss.com/wp-content/uploads/2021/01/Google-Play-Store-Button-300x98.png)
+[Download on Google Play Store](https://play.google.com/store/apps/details?id=com.Pocket.Weather)
 
 [Explore this app on Expo!](https://expo.io/@wesley26/projects/weather_App) Download the Expo Go app for your iOS mobile device, create an account and/or log into an existing account, and follow the instructions at the given link. Due to ads being implemented for android version, use this link **ONLY** for iOS.
 
