@@ -1,8 +1,4 @@
 import { Platform, StyleSheet } from 'react-native';
-import {create} from 'tailwind-rn';
-import styles from './styles.json';
-
-const {tailwind, getColor} = create(styles);
 
 /**
  * Font Family and Font Color config. Export to all
@@ -67,4 +63,4 @@ const fontConfig = StyleSheet.create({
 
 });
 
-export { tailwind, getColor, fontConfig };
+export { fontConfig };

@@ -1,10 +1,8 @@
-import React, { useContext } from 'react';
+import { FC, useContext } from 'react';
 import { View, Platform, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-import { tailwind } from '../../../tailwind.js';
-
-import { InfoPanelContext } from '../../hooks/InfoPanelContext.js';
+import { InfoPanelContext } from '../../hooks/InfoPanelContext';
 
 /**
  * InfoButton child component
@@ -17,13 +15,13 @@ import { InfoPanelContext } from '../../hooks/InfoPanelContext.js';
  * @returns - InfoButton component
  */
 
-export default InfoButton = () => {
+const InfoButton:FC = () => {
 
     const { infoPanelToggle, setInfoPanelToggle } = useContext(InfoPanelContext);
-    const infoIconName = Platform.OS === 'ios' ? 'ios-information-sharp' : 'md-information';
+    const infoIconName: any = Platform.OS === 'ios' ? 'ios-information-sharp' : 'md-information';
 
     return (
-        <View style={tailwind('bg-gray-300 p-3 max-w-full h-16 text-center rounded-full')}>
+        <View className='bg-gray-300 p-3 max-w-full h-16 text-center rounded-full'>
 
             <TouchableOpacity
                 onPress={() => {
@@ -41,3 +39,5 @@ export default InfoButton = () => {
         </View>
     );
 };
+
+export default InfoButton;

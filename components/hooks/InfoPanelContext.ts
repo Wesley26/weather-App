@@ -11,7 +11,12 @@ import { createContext } from 'react';
  * purpose is to set the infoPanelToggle.
  */
 
-export let InfoPanelContext = createContext({
+type INFO_PANEL_CONTEXT = {
+    infoPanelToggle: boolean,
+    setInfoPanelToggle: (sIPT: boolean) => void,
+};
+
+export let InfoPanelContext = createContext<INFO_PANEL_CONTEXT>({
 
     infoPanelToggle: false,
     setInfoPanelToggle: () => {},

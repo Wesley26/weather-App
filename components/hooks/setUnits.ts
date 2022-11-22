@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 
-import { CurrentUnitContext } from './CurrentUnitContext.js';
+import { CurrentUnitContext } from './CurrentUnitContext';
 
 /**
  * @theCurrentUnit - useEffect only runs when Context 
@@ -10,7 +10,7 @@ import { CurrentUnitContext } from './CurrentUnitContext.js';
  * See the OpenWeatherMap API for these unit definitions.
  */
 
-export default setUnits = () => {
+const setUnits = () => {
 
     const { theCurrentUnit } = useContext(CurrentUnitContext);
     const [currentUnit, setCurrentUnit] = useState(``);
@@ -45,3 +45,5 @@ export default setUnits = () => {
     return currentUnit;
     
 };
+
+export default setUnits;

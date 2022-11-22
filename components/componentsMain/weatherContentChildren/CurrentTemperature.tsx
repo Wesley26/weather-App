@@ -1,8 +1,8 @@
-import React from 'react';
+import { FC } from 'react';
 import { View, Text } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-import { tailwind, fontConfig } from '../../../tailwind.js';
+import { fontConfig } from '../../../tailwind';
 
 /**
  * CurrentTemperatre child component
@@ -13,26 +13,30 @@ import { tailwind, fontConfig } from '../../../tailwind.js';
  * WeatherContent.js
  */
 
-export default CurrentTemperature = ({ tempText, temp, tempSymbol }) => {
+interface CURRENT_TEMP {
+    tempText: string,
+    temp: number,
+    tempSymbol: string,
+};
 
-    const tempIconName = `thermometer`;
+const CurrentTemperature:FC<CURRENT_TEMP> = (props) => {
+
+    const tempIconName: any = `thermometer`;
 
     return (
         <View>
             
             <Text
-                style={[
-                    fontConfig.fontFamilyText,
-                    tailwind('bg-gray-300 pt-7 w-64 h-14 text-center text-22fz')
-                ]}
+                style={fontConfig.fontFamilyText}
+                className='bg-gray-300 pt-7 w-64 h-14 text-center text-22fz'
                 numberOfLines={1}
             >
-                {tempText}
+                {props.tempText}
             </Text>
 
-            <View style={tailwind('bg-gray-300 flex-row justify-center items-center')}>
+            <View className='bg-gray-300 flex-row justify-center items-center'>
                 <MaterialCommunityIcons
-                    style={tailwind('pl-8 pt-10 pb-28')}
+                    className='pl-8 pt-10 pb-28'
                     name={tempIconName}
                     size={45}
                     color={fontConfig.temperatureColor.color}
@@ -41,14 +45,16 @@ export default CurrentTemperature = ({ tempText, temp, tempSymbol }) => {
                     style={[
                         fontConfig.fontFamilyText,
                         fontConfig.temperatureColor,
-                        tailwind('bg-gray-300 pb-20 pr-10 w-44 h-32 text-center text-44fz')
                     ]}
+                    className='bg-gray-300 pb-20 pr-10 w-44 h-32 text-center text-44fz'
                     numberOfLines={1}
                 >
-                    {Math.round(temp)}{tempSymbol}
+                    {Math.round(props.temp)}{props.tempSymbol}
                 </Text>
             </View>
 
         </View>
     );
 };
+
+export default CurrentTemperature;

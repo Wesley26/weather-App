@@ -7,14 +7,14 @@ import { useEffect, useState } from 'react';
  * @settingBG - truthy determines if it is day or night hour
  */
 
-export default setBGImage = () => {
+const setBGImage = () => {
     
     const imageBG = {
         day: require("../assets/mainPhotos/Day_Clouds.jpg"),
         night: require("../assets/mainPhotos/Night_Sky.jpg"),
     };
 
-    let hour = new Date().getHours();
+    let hour: number = new Date().getHours();
 
     const [backgroundImage, setBackgroundImage] = useState();
 
@@ -22,10 +22,12 @@ export default setBGImage = () => {
 
         console.log(`The Current Hour is: ${hour}`); //uncomment to see current hour
 
-        let settingBG = hour >= 6 && hour <= 18 ? imageBG.day : imageBG.night;
+        let settingBG: any = hour >= 6 && hour <= 18 ? imageBG.day : imageBG.night;
         setBackgroundImage(settingBG);
 
     }, [hour]);
 
     return backgroundImage;
 };
+
+export default setBGImage;

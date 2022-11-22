@@ -1,13 +1,7 @@
-/**
- * TailwindCSS config file.
- */
+/** @type {import('tailwindcss').Config} */
 
 module.exports = {
-  purge: {
-    enabled: true,
-    content: [ './**/**/*.js' ],
-  },
-  darkMode: false, // or 'media' or 'class'
+  content: ["./App.{js,jsx,ts,tsx}", "./components/**/**/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
       borderRadius: {

@@ -2,13 +2,17 @@
 
 # Pocket Weather React Native App
 
-This React Native App uses the following dependencies: [React Native Docs (expo)](https://reactnative.dev/), [Expo](https://docs.expo.io/), [TailwindCSS](https://tailwindcss.com/), [Tailwind-RN](https://github.com/vadimdemedes/tailwind-rn#readme), [Expo Icons (AntDesign, IonIcons, MaterialCommunityIcons)](https://icons.expo.fyi/), [Expo Location](https://docs.expo.io/versions/v40.0.0/sdk/location/), and [Expo Google AdMob](https://docs.expo.dev/versions/v42.0.0/sdk/admob/).
+This React Native App uses the following dependencies: [React Native Docs (expo)](https://reactnative.dev/), [Expo](https://docs.expo.io/), [TailwindCSS](https://tailwindcss.com/), [NativeWind](https://www.nativewind.dev/quick-starts/expo), [Expo Icons (AntDesign, IonIcons, MaterialCommunityIcons)](https://icons.expo.fyi/), [Expo Location](https://docs.expo.io/versions/v40.0.0/sdk/location/), and [React Native Google Mobile Ads](https://github.com/invertase/react-native-google-mobile-ads).
 
-**IMPORTANT NOTE:** Please read [this article for configuring test ads](https://support.google.com/admob/answer/9691433). [Google AdMob main page (requires google login)](https://apps.admob.com).
+Archived dependencies as of November 15th, 2022: [Tailwind-RN](https://github.com/vadimdemedes/tailwind-rn#readme)
+
+**IMPORTANT NOTE:** Please read [this article for configuring test ads](https://support.google.com/admob/answer/9691433). [Google AdMob main page (requires google login)](https://apps.admob.com). [Updated instructions for React Native Google Mobile Ads](https://docs.page/invertase/react-native-google-mobile-ads).
 
 Obtaining weather from [OpenWeather Map API](https://openweathermap.org/).
 
-NOTE: Use command `npx create-tailwind-rn` every time you update your tailwind.config.js file. This command is needed to create the styles.json file during development. The styles.json is un-tracked ONLY when purge is enabled. Make sure in app.json, android.versionCode is incremented once per android Google Play Store submission.
+NOTE: Use command `npm run dev:tailwind` to compile tailwind styles. Make sure in app.json, android.versionCode is incremented once per android Google Play Store submission.
+
+NOTE: as of November 10th, 2022 - run with `npx expo start`.
 
 [Daytime Cloud Photo Source](https://unsplash.com/photos/yQorCngxzwI?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink)
 

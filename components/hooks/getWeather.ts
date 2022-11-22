@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect } from 'react';
 
-import useLocation from '../hooks/useLocation.js';
-import { CurrentUnitContext } from '../hooks/CurrentUnitContext.js';
+import useLocation from './useLocation';
+import { CurrentUnitContext } from './CurrentUnitContext';
 
 /**
  * @getWeather - if permission was granted in useLocation() hook,
@@ -20,12 +20,12 @@ import { CurrentUnitContext } from '../hooks/CurrentUnitContext.js';
  * @weatherUrl - Full OpenWeatherMap API access string
  */
 
-export default getWeather = () => {
+const getWeather = () => {
 
     const theLocation = useLocation();
     const { theCurrentUnit } = useContext(CurrentUnitContext);
 
-    const [currentWeather, setCurrentWeather] = useState();
+    const [currentWeather, setCurrentWeather] = useState<any>();
 
     useEffect(() => {
 
@@ -58,7 +58,7 @@ export default getWeather = () => {
 
                     };
 
-                } catch (error) {
+                } catch (error: any) {
 
                     console.log(error);
                     alert(error.message);
@@ -79,3 +79,5 @@ export default getWeather = () => {
     return currentWeather;
 
 };
+
+export default getWeather;

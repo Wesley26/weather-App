@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import { FC, useState } from 'react';
 
-import { CurrentUnitContext } from './components/hooks/CurrentUnitContext.js';
-import { InfoPanelContext } from './components/hooks/InfoPanelContext.js';
+import { CurrentUnitContext } from './components/hooks/CurrentUnitContext';
+import { InfoPanelContext } from './components/hooks/InfoPanelContext';
 
 import WeatherScreen from './components/screens/WeatherScreen';
 
@@ -16,10 +16,10 @@ import WeatherScreen from './components/screens/WeatherScreen';
  * All useState hooks contain a global scope for the entire app.
  */
 
-export default App = () => {
+const App:FC = () => {
 
-    const [theCurrentUnit, setCurrentUnit] = useState("imperial");
-    const [infoPanelToggle, setInfoPanelToggle] = useState(false);
+    const [theCurrentUnit, setCurrentUnit] = useState<string>("imperial");
+    const [infoPanelToggle, setInfoPanelToggle] = useState<boolean>(false);
     
     return ( 
 
@@ -36,3 +36,18 @@ export default App = () => {
     );
 
 };
+
+export default App;
+
+// import { FC } from 'react';
+// import { Text, View } from 'react-native';
+
+// const App:FC = () => {
+//   return (
+//     <View className="flex-1 items-center justify-center bg-white">
+//       <Text>This is a test component!</Text>
+//     </View>
+//   );
+// };
+
+// export default App;

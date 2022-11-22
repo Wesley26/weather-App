@@ -1,5 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { FC, useContext, useEffect, useState } from 'react';
 import { Animated, View } from 'react-native';
+import { styled } from 'nativewind';
 
 import {
     AdBanner,
@@ -16,13 +17,13 @@ import {
     WeatherDescription,
     WeatherIcon,
     WeatherMain,
-} from './weatherContentChildren/index.js';
+} from './weatherContentChildren/index';
 
-import getWeather from '../hooks/getWeather.js';
-import { InfoPanelContext } from '../hooks/InfoPanelContext.js';
-import setUnits from '../hooks/setUnits.js';
+import getWeather from '../hooks/getWeather';
+import { InfoPanelContext } from '../hooks/InfoPanelContext';
+import setUnits from '../hooks/setUnits';
 
-import { tailwind, fontConfig } from '../../tailwind.js';
+import { fontConfig } from '../../tailwind';
 
 /**
  * @WeatherContent - calls getWeather to import and display
@@ -32,7 +33,10 @@ import { tailwind, fontConfig } from '../../tailwind.js';
  * if theCurrentWeather does not exist, show loading prompt to the user
  */
 
-export default WeatherContent = () => {
+const WeatherContent:FC = () => {
+
+    const StyledView = styled(View);
+    const StyledAnimatedView = styled(Animated.View);
 
     const { infoPanelToggle } = useContext(InfoPanelContext);
 
@@ -40,11 +44,11 @@ export default WeatherContent = () => {
     const theCurrentWeather = getWeather();
     console.log(theCurrentWeather); //uncomment to see theCurrentWeather Object
 
-    const loadingText = `Loading ...`;
-    const unitSwitchHeader = `Unit Settings`;
-    const unitImperialText = `Imperial Units`;
-    const unitMetricText = `Metric Units`;
-    const unitStandardText = `Scientific Units`;
+    const loadingText: string = `Loading ...`;
+    const unitSwitchHeader: string = `Unit Settings`;
+    const unitImperialText: string = `Imperial Units`;
+    const unitMetricText: string = `Metric Units`;
+    const unitStandardText: string = `Scientific Units`;
 
     /**
      * Add text to display for InfoPanel component here
@@ -52,10 +56,10 @@ export default WeatherContent = () => {
 
     const infoPanelText = {
 
-    one: `Pocket Weather, created by Wesley Dzitzer. Weather Data is obtained from OpenWeather Map.`,
-    two: `For any inquiries and/or feedback, contact me on my website: `,
-    contactUrl: `https://wesleywebdev.com/contactMe`,
-    three: `wesleywebdev.com`
+        one: `Pocket Weather, created by Wesley Dzitzer. Weather Data is obtained from OpenWeather Map.` as string,
+        two: `For any inquiries and/or feedback, contact me on my website: ` as string,
+        contactUrl: `https://wesleywebdev.com/contactMe` as string,
+        three: `wesleywebdev.com` as string,
 
     };
 
@@ -65,7 +69,7 @@ export default WeatherContent = () => {
      * animation can occur quickly
      */
 
-    const [fadeAnimate] = useState(new Animated.Value(0));
+    const [fadeAnimate] = useState<any>(new Animated.Value(0));
 
     useEffect(() => {
 
@@ -112,7 +116,7 @@ export default WeatherContent = () => {
             } = theCurrentWeather;
 
         const { icon, main, description } = details;
-        const iconUrl = `https://openweathermap.org/img/wn/${icon}@4x.png`;
+        const iconUrl: string = `https://openweathermap.org/img/wn/${icon}@4x.png`;
 
         /**
          * Template strings for the weather user interface.
@@ -134,11 +138,11 @@ export default WeatherContent = () => {
 
         return (
 
-            <View style={tailwind('bg-transparent mb-24 flex-1 justify-center items-center')}>
+            <StyledView className='bg-transparent mb-24 flex-1 justify-center items-center'>
                             
-                <View style={tailwind('bg-white bg-opacity-30 px-2 py-5 justify-center items-center rounded-lg')}>
+                <StyledView className='bg-white bg-opacity-30 px-2 py-5 justify-center items-center rounded-lg'>
 
-                    <View style={tailwind('p-10 justify-center items-center flex-col')}>
+                    <StyledView className='p-10 justify-center items-center flex-col'>
 
                         <CityName 
                             name={name}
@@ -186,15 +190,15 @@ export default WeatherContent = () => {
                             standardUnits={unitStandardText}
                         />
 
-                    </View>
+                    </StyledView>
 
-                    <View style={tailwind('p-5 justify-center items-center flex-col')}>
+                    {/* <StyledView className='p-5 justify-center items-center flex-col'>
 
                         <AdBanner />
 
-                    </View>
+                    </StyledView> */}
 
-                    <Animated.View style={[
+                    <StyledAnimatedView style={[
                             { opacity: fadeAnimate },
                         ]}>
 
@@ -205,12 +209,12 @@ export default WeatherContent = () => {
                             />
                         ) : null }
 
-                    </Animated.View>
+                    </StyledAnimatedView>
 
                     <InfoButton />
 
-                </View>
-            </View>
+                </StyledView>
+            </StyledView>
 
         );
 
@@ -224,4 +228,8 @@ export default WeatherContent = () => {
                 />; 
     };
 
+    return null; //TS needed this
+
 };
+
+export default WeatherContent;

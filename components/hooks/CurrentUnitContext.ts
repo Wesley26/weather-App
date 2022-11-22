@@ -10,7 +10,12 @@ import { createContext } from 'react';
  * purpose is to set the Current Unit.
  */
 
-export let CurrentUnitContext = createContext({
+type CURRENT_UNIT_CONTEXT = {
+    theCurrentUnit: string,
+    setCurrentUnit: (sCU: string) => void, 
+};
+
+export let CurrentUnitContext = createContext<CURRENT_UNIT_CONTEXT>({
 
     theCurrentUnit: "",
     setCurrentUnit: () => {},

@@ -1,8 +1,7 @@
-import React from 'react';
-import { Platform } from 'react-native';
-import { AdMobBanner } from 'expo-ads-admob';
-
-import { tailwind } from "../../../tailwind.js";
+import { FC } from 'react';
+import { Platform, View } from 'react-native';
+// import { AdMobBanner } from 'expo-ads-admob';
+import { BannerAd } from 'react-native-google-mobile-ads';
 
 /**
  * Google AdMob child component.
@@ -20,7 +19,7 @@ import { tailwind } from "../../../tailwind.js";
  * instructions. All test ads have a test ad label.
  */
 
-export default AdBanner = () => {
+const AdBanner:FC = () => {
 
     /**
      * NOTE:
@@ -36,7 +35,7 @@ export default AdBanner = () => {
         AD_MOB_ANDROID_ID
     } = require("../../clientSecret/adMob.json");
 
-    const ad_ID = Platform.select({
+    const ad_ID: string = Platform.select({
 
         ios: AD_MOB_IOS_ID, //add a AD_MOB_IOS_ID to adMob.json if ever released for ios
         android: AD_MOB_ANDROID_ID,
@@ -47,14 +46,17 @@ export default AdBanner = () => {
         <>
             { Platform.OS === "android" ? 
             (
-                <AdMobBanner 
-                    adUnitID={ad_ID}
-                    bannerSize="mediumRectangle"
-                    servePersonalizedAds={true}
-                    style={tailwind("px-1 pt-1 pb-8")}
-                />
+                <View className="px-1 pt-1 pb-8">
+                    <BannerAd 
+                        unitId={ad_ID}
+                        size="mediumRectangle"
+                        // servePersonalizedAds={true} //???
+                    />
+                </View>
             ) : null }
         </>
     );
 
 };
+
+export default AdBanner;

@@ -10,4 +10,4 @@
  * directory.
  */
 
-export { default as UnitSettingButton } from './UnitSettingButton.js';
+export { default as UnitSettingButton } from './UnitSettingButton';

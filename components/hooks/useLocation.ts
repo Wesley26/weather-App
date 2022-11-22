@@ -19,10 +19,10 @@ import * as Location from 'expo-location';
  * Android 11.
  */
 
-export default useLocation = () => {
+const useLocation = () => {
 
     const permsNotGranted = `You need to give your permission to view the current weather in your area.`;
-    const [location, setLocation] = useState();
+    const [location, setLocation] = useState<any>();
 
     const getLocation = async () => {
 
@@ -55,3 +55,5 @@ export default useLocation = () => {
     return location;
 
 };
+
+export default useLocation;
