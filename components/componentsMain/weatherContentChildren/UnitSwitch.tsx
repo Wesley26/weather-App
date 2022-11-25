@@ -1,5 +1,6 @@
 import { FC, useContext } from 'react';
 import { Text, View } from 'react-native';
+import { styled } from 'nativewind';
 
 import { CurrentUnitContext } from '../../hooks/CurrentUnitContext';
 
@@ -29,17 +30,20 @@ interface UNIT_SWITCH {
 
 const UnitSwitch:FC<UNIT_SWITCH> = (props) => {
 
+    const StyledView = styled(View);
+    const StyledText = styled(Text);
+
     const { theCurrentUnit, setCurrentUnit } = useContext(CurrentUnitContext);
 
     return (
 
-        <View className='bg-gray-300 border-t-2 p-3 w-64 h-96'>
+        <StyledView className='bg-gray-300 border-t-2 p-3 w-64 h-96'>
 
-            <Text className='text-center text-22fz'>
+            <StyledText className='text-center text-22fz'>
                 {props.switchHeader}
-            </Text>
+            </StyledText>
 
-            <View className='flex-1 justify-center items-center'>
+            <StyledView className='flex-1 justify-center items-center'>
 
                 <UnitSettingButton
                     setUnit={() => {
@@ -86,9 +90,9 @@ const UnitSwitch:FC<UNIT_SWITCH> = (props) => {
                     unitText={props.standardUnits}
                 />
 
-            </View>
+            </StyledView>
 
-        </View>
+        </StyledView>
     );
 };
 

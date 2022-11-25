@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { Text } from 'react-native';
+import { styled } from 'nativewind';
 
 import { fontConfig } from '../../../tailwind';
 
@@ -15,13 +16,16 @@ interface CITY_NAME {
 };
 
 const CityName:FC<CITY_NAME> = (props) => {
+
+    const StyledText = styled(Text);
+
     return (
-        <Text 
+        <StyledText 
             style={fontConfig.fontFamilyText}
             className='bg-gray-300 p-3 w-64 h-16 text-center text-22fz'
         >
             {props.name}
-        </Text>
+        </StyledText>
     );
 };
 

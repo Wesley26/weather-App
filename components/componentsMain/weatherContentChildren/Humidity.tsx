@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { Text } from 'react-native';
+import { styled } from 'nativewind';
 
 import { fontConfig } from '../../../tailwind';
 
@@ -15,12 +16,15 @@ interface HUMIDITY {
 }
 
 const Humidity:FC<HUMIDITY> = (props) => {
+
+    const StyledText = styled(Text);
+
     return (
-        <Text style={fontConfig.fontFamilyText}
+        <StyledText style={fontConfig.fontFamilyText}
             className='bg-gray-300 px-3 pt-12 pb-3 w-64 h-32 text-center text-22fz'
         >
             {props.humidityText}
-        </Text>
+        </StyledText>
     );
 };
 

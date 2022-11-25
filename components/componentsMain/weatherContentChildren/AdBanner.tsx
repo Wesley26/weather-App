@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { Platform, View } from 'react-native';
 // import { AdMobBanner } from 'expo-ads-admob';
+import { styled } from 'nativewind';
 import { BannerAd } from 'react-native-google-mobile-ads';
 
 /**
@@ -42,17 +43,20 @@ const AdBanner:FC = () => {
 
     });
 
+    const StyledView = styled(View);
+
     return (
+
         <>
             { Platform.OS === "android" ? 
             (
-                <View className="px-1 pt-1 pb-8">
+                <StyledView className="px-1 pt-1 pb-8">
                     <BannerAd 
                         unitId={ad_ID}
                         size="mediumRectangle"
                         // servePersonalizedAds={true} //???
                     />
-                </View>
+                </StyledView>
             ) : null }
         </>
     );

@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { Image } from 'react-native';
+import { styled } from 'nativewind';
 
 /**
  * WeatherIcon child component
@@ -13,8 +14,11 @@ interface WEATHER_ICON {
 }
 
 const WeatherIcon:FC<WEATHER_ICON> = (props) => {
+
+    const StyledImage = styled(Image)
+
     return (
-        <Image 
+        <StyledImage 
             source={props.icon}
             className='w-100w h-100h'
         />

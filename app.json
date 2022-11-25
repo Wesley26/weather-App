@@ -19,7 +19,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.Pocket.Weather"
     },
     "android": {
       "adaptiveIcon": {
@@ -28,18 +29,19 @@
       },
       "package": "com.Pocket.Weather",
       "permissions": [
-        "ACCESS_COARSE_LOCATION", 
-        "ACCESS_FINE_LOCATION", 
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
         "FOREGROUND_SERVICE"
       ],
       "versionCode": 3
     },
     "web": {
       "favicon": "./components/assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "3fda5b3f-7012-41da-b46a-37bb1be5e780"
+      }
     }
-  },
-  "react-native-google-mobile-ads": {
-    "android_app_id": "ca-app-pub-6911236672739271~6357442755",
-    "ios_app_id": "ca-app-pub-xxxxxxxx~xxxxxxxx"
   }
 }

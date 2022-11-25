@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { View, Text } from 'react-native';
+import { styled } from 'nativewind';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import { fontConfig } from '../../../tailwind';
@@ -21,27 +22,31 @@ interface CURRENT_TEMP {
 
 const CurrentTemperature:FC<CURRENT_TEMP> = (props) => {
 
+    const StyledView = styled(View);
+    const StyledText = styled(Text);
+    const StyledMCI = styled (MaterialCommunityIcons);
+
     const tempIconName: any = `thermometer`;
 
     return (
-        <View>
+        <StyledView>
             
-            <Text
+            <StyledText
                 style={fontConfig.fontFamilyText}
                 className='bg-gray-300 pt-7 w-64 h-14 text-center text-22fz'
                 numberOfLines={1}
             >
                 {props.tempText}
-            </Text>
+            </StyledText>
 
-            <View className='bg-gray-300 flex-row justify-center items-center'>
-                <MaterialCommunityIcons
+            <StyledView className='bg-gray-300 flex-row justify-center items-center'>
+                <StyledMCI
                     className='pl-8 pt-10 pb-28'
                     name={tempIconName}
                     size={45}
                     color={fontConfig.temperatureColor.color}
                 />
-                <Text
+                <StyledText
                     style={[
                         fontConfig.fontFamilyText,
                         fontConfig.temperatureColor,
@@ -50,10 +55,10 @@ const CurrentTemperature:FC<CURRENT_TEMP> = (props) => {
                     numberOfLines={1}
                 >
                     {Math.round(props.temp)}{props.tempSymbol}
-                </Text>
-            </View>
+                </StyledText>
+            </StyledView>
 
-        </View>
+        </StyledView>
     );
 };
 

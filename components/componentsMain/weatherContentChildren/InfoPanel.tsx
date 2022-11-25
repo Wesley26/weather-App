@@ -1,5 +1,6 @@
 import { FC, useContext, useEffect, useState } from 'react';
 import { Animated, Linking, View, Text } from 'react-native';
+import { styled } from 'nativewind';
 
 import {
     UnitSettingButton,
@@ -30,6 +31,10 @@ interface INFO_PANEL {
 };
 
 const InfoPanel:FC<INFO_PANEL> = (props) => {
+
+    const StyledAnimatedView = styled(Animated.View);
+    const StyledText = styled(Text);
+    const StyledView = styled(View);
 
     const { infoPanelToggle } = useContext(InfoPanelContext);
 
@@ -65,23 +70,23 @@ const InfoPanel:FC<INFO_PANEL> = (props) => {
 
     return (
 
-        <Animated.View style={{ transform: [{ scale: springAnimate }]}}
+        <StyledAnimatedView style={{ transform: [{ scale: springAnimate }]}}
             className='px-10 pt-6 pb-12 justify-center items-center flex-col'
         >
 
-            <Text style={fontConfig.fontFamilyText}
+            <StyledText style={fontConfig.fontFamilyText}
                 className='bg-gray-300 p-3 w-64 h-44 text-center text-22fz'
             >
                 {props.infoPanelText.one}
-            </Text>
+            </StyledText>
 
-            <Text style={fontConfig.fontFamilyText}
+            <StyledText style={fontConfig.fontFamilyText}
                 className='bg-gray-300 p-3 w-64 h-36 text-center text-22fz'
             >
                 {props.infoPanelText.two}
-            </Text>
+            </StyledText>
 
-            <View className='bg-gray-300 pb-6 w-64 justify-center items-center flex-col'>
+            <StyledView className='bg-gray-300 pb-6 w-64 justify-center items-center flex-col'>
 
                 <UnitSettingButton 
                     setUnit={() => Linking.openURL(props.infoPanelText.contactUrl)}
@@ -93,9 +98,9 @@ const InfoPanel:FC<INFO_PANEL> = (props) => {
                     unitText={props.infoPanelText.three}
                 />
 
-            </View>
+            </StyledView>
 
-        </Animated.View>
+        </StyledAnimatedView>
         
     );
 };

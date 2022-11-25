@@ -1,6 +1,7 @@
 import { FC, useContext } from 'react';
 import { View, Platform, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { styled } from 'nativewind';
 
 import { InfoPanelContext } from '../../hooks/InfoPanelContext';
 
@@ -17,26 +18,30 @@ import { InfoPanelContext } from '../../hooks/InfoPanelContext';
 
 const InfoButton:FC = () => {
 
+    const StyledView = styled(View);
+    const StyledTouchableOpacity = styled(TouchableOpacity);
+    const StyledIonicons = styled(Ionicons);
+
     const { infoPanelToggle, setInfoPanelToggle } = useContext(InfoPanelContext);
     const infoIconName: any = Platform.OS === 'ios' ? 'ios-information-sharp' : 'md-information';
 
     return (
-        <View className='bg-gray-300 p-3 max-w-full h-16 text-center rounded-full'>
+        <StyledView className='bg-gray-300 p-3 max-w-full h-16 text-center rounded-full'>
 
-            <TouchableOpacity
+            <StyledTouchableOpacity
                 onPress={() => {
                     setInfoPanelToggle(!infoPanelToggle);
                     console.log(`Toggled info panel.`); //Uncomment for testing.
                 }}
             >
-                <Ionicons
+                <StyledIonicons
                     name={infoIconName}
                     size={40}
                     color={"black"}
                 />
-            </TouchableOpacity>
+            </StyledTouchableOpacity>
 
-        </View>
+        </StyledView>
     );
 };
 

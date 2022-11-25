@@ -137,10 +137,10 @@ const WeatherContent:FC = () => {
         const descriptionText = `The current weather in your area is ${description}.`;
 
         return (
-
+        
             <StyledView className='bg-transparent mb-24 flex-1 justify-center items-center'>
                             
-                <StyledView className='bg-white bg-opacity-30 px-2 py-5 justify-center items-center rounded-lg'>
+                <StyledView className='bg-white/30 px-2 py-5 justify-center items-center rounded-lg'>
 
                     <StyledView className='p-10 justify-center items-center flex-col'>
 
@@ -193,8 +193,8 @@ const WeatherContent:FC = () => {
                     </StyledView>
 
                     {/* <StyledView className='p-5 justify-center items-center flex-col'>
-
-                        <AdBanner />
+                        
+                        <AdBanner /> Todo: Need to figure out how to run test ads again
 
                     </StyledView> */}
 
