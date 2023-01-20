@@ -192,11 +192,11 @@ const WeatherContent:FC = () => {
 
                     </StyledView>
 
-                    {/* <StyledView className='p-5 justify-center items-center flex-col'>
+                    <StyledView className='p-5 justify-center items-center flex-col'>
                         
                         <AdBanner /> Todo: Need to figure out how to run test ads again
 
-                    </StyledView> */}
+                    </StyledView>
 
                     <StyledAnimatedView style={[
                             { opacity: fadeAnimate },

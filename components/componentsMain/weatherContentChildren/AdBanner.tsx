@@ -1,8 +1,7 @@
 import { FC } from 'react';
 import { Platform, View } from 'react-native';
-// import { AdMobBanner } from 'expo-ads-admob';
 import { styled } from 'nativewind';
-import { BannerAd } from 'react-native-google-mobile-ads';
+import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads'
 
 /**
  * Google AdMob child component.
@@ -18,6 +17,7 @@ import { BannerAd } from 'react-native-google-mobile-ads';
  * Ensure you NEVER load a real production ad in an Android Emulator or iOS Simulator. 
  * Failure to do this can result in a ban from the AdMob program. See readme for more
  * instructions. All test ads have a test ad label.
+ * See https://docs.page/invertase/react-native-google-mobile-ads/displaying-ads#banner-ads-component
  */
 
 const AdBanner:FC = () => {
@@ -31,17 +31,14 @@ const AdBanner:FC = () => {
      * ios in the future.
      */
 
-    const { 
-        AD_MOB_IOS_ID,
-        AD_MOB_ANDROID_ID
-    } = require("../../clientSecret/adMob.json");
+    const adUnitId = __DEV__ ? TestIds.BANNER : 'ca-app-pub-6911236672739271/5914396104';
 
-    const ad_ID: string = Platform.select({
+    // const ad_ID: string = Platform.select({
 
-        ios: AD_MOB_IOS_ID, //add a AD_MOB_IOS_ID to adMob.json if ever released for ios
-        android: AD_MOB_ANDROID_ID,
+    //     ios: AD_MOB_IOS_ID, //add a AD_MOB_IOS_ID to adMob.json if ever released for ios
+    //     android: AD_MOB_ANDROID_ID,
 
-    });
+    // });
 
     const StyledView = styled(View);
 
@@ -52,9 +49,8 @@ const AdBanner:FC = () => {
             (
                 <StyledView className="px-1 pt-1 pb-8">
                     <BannerAd 
-                        unitId={ad_ID}
-                        size="mediumRectangle"
-                        // servePersonalizedAds={true} //???
+                        unitId={adUnitId}
+                        size={BannerAdSize.FULL_BANNER}
                     />
                 </StyledView>
             ) : null }

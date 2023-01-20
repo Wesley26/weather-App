@@ -12,7 +12,9 @@ Obtaining weather from [OpenWeather Map API](https://openweathermap.org/).
 
 NOTE: android.versionCode is incremented once per android Google Play Store submission.
 
-NOTE: as of November 10th, 2022 - run with `npx expo start`. [Review how to run the app with EAS build](https://docs.expo.dev/development/create-development-builds/).
+NOTE: For EAS build, you will need to run `npx expo customize metro.config.js`.
+
+NOTE: as of January 20th, 2023 - run with `npx expo start`. [Review how to run the app with EAS build](https://docs.expo.dev/development/create-development-builds/). Run `expo-cli upgrade` to ensure all npm packages are up to date. Next, run `eas whoami` (or `eas login` if not logged in) to check and make sure you are logged into your Expo account. Next, run `eas build:configure` for Android. Next, run `eas build` and select Android to run an Android build. `eas build --profile development --platform android` will run an Android development build. All builds are run remotely.
 
 [Daytime Cloud Photo Source](https://unsplash.com/photos/yQorCngxzwI?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink)
 
@@ -48,7 +50,7 @@ Full screenshot showcase can be found [in the components/assets/demoScreenshots 
 
 
 ## Content of Repo
-This app was converted from vanilla JavaScript to TypeScript React on November 20th, 2022. Content of this repo was updated since November 25th, 2022.
+This app was converted from vanilla JavaScript to TypeScript React on November 20th, 2022. Content of this repo was updated since January 20th, 2023.
 
 **components folder:**
 
@@ -101,3 +103,4 @@ This app was converted from vanilla JavaScript to TypeScript React on November 2
 1. `App.tsx` - Renders WeatherScreen.js, Context Provider for CurrentUnitContext and InfoPanelContext.Runs the entire app. @theCurrentUnit - String value, inherits string Context from CurrentUnitContext. @setCurrentUnit - Function, inherits empty function Context from CurrentUnitContext. @infoPanelToggle - Boolean value, inherits boolean Context from InfoPanelContext. @setInfoPanelToggle - Function, inherits empty function Context from InfoPanelContext. All useState hooks contain a global scope for the entire app.
 2. `tailwind.config.js` - tailwindCSS config file, generate your StyleSheet objects here in theme.extend. See the tailwindCSS documentation for more information.
 3. `tailwind.ts` - create the tailwindCSS style here for react native app. Font Family and Font Color config. Export to all components that require custom font settings that tailwind-rn does not support. All styles that use supported tailwind classes must be generated from tailwind.config.js.
+4. `index.tsx` - App's entry point, do not have a "main" inside package.json
