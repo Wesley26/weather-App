@@ -17,6 +17,7 @@ web-build/
 
 # ignoring ./components/clientSecret directory for API Key security
 components/clientSecret
+.env
 
 # macOS
 .DS_Store

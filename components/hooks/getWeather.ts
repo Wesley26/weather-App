@@ -1,5 +1,7 @@
 import { useContext, useState, useEffect } from 'react';
 
+import openWeather from '../clientSecret/openWeather';
+
 import useLocation from './useLocation';
 import { CurrentUnitContext } from './CurrentUnitContext';
 
@@ -22,14 +24,14 @@ import { CurrentUnitContext } from './CurrentUnitContext';
 
 const getWeather = () => {
 
+    const WEATHER_API_KEY = openWeather();
+
     const theLocation = useLocation();
     const { theCurrentUnit } = useContext(CurrentUnitContext);
 
     const [currentWeather, setCurrentWeather] = useState<any>();
 
     useEffect(() => {
-
-        const { WEATHER_API_KEY } = require("../clientSecret/openWeather.json");
 
         let baseWeatherUrl = 'https://api.openweathermap.org/data/2.5/weather?', 
             weatherUrl = "";
@@ -74,7 +76,7 @@ const getWeather = () => {
 
         };
 
-    }, [theLocation, theCurrentUnit]);
+    }, [theLocation, theCurrentUnit, WEATHER_API_KEY]);
 
     return currentWeather;
 
